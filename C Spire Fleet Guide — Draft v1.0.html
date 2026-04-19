@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)file:///Users/mjohnson/Downloads/CSpire_FleetGuide_Share.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>C Spire Fleet Guide — Draft v1.0</title>
+
+  <!-- PWA manifest and theme -->
+  <link rel="manifest" href="file:///Users/mjohnson/Downloads/manifest.json">
+  <meta name="theme-color" content="#00c0f3">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Fleet Guide">
+  <meta name="application-name" content="Fleet Guide">
+  <meta name="msapplication-TileColor" content="#0f1a26">
+  <meta name="description" content="C Spire Fleet Management Policy — your complete reference guide for authorized drivers.">
+
+  <!-- Apple touch icons (iOS home screen) -->
+  <link rel="apple-touch-icon" sizes="152x152" href="file:///Users/mjohnson/Downloads/icons/icon-152.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="file:///Users/mjohnson/Downloads/icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="file:///Users/mjohnson/Downloads/icons/icon-512.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="file:///Users/mjohnson/Downloads/icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="file:///Users/mjohnson/Downloads/icons/icon-96.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link href="./C Spire Fleet Guide — Draft v1.0_files/css2" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #0f1a26;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0;
+      padding: 0;
+    }
+    .phone {
+      width: 100%;
+      max-width: 480px;
+      background: #0f1a26;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+    }
+    @media (min-width: 520px) {
+      body { background: #1a2535; padding: 0; align-items: center; }
+      .phone { max-width: 460px; min-height: 100vh; border-radius: 0; margin: 0 auto; }
+    }
+    @media (min-width: 900px) {
+      body { background: #1a2535; padding: 32px 24px; align-items: center; justify-content: flex-start; }
+      .phone { max-width: 420px; min-height: calc(100vh - 64px); border-radius: 32px; border: 2px solid #1e2e3e; box-shadow: 0 24px 64px rgba(0,0,0,0.5); overflow: hidden; margin: 0 auto; }
+    }
+    .status-bar {
+      background: #0a1520;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      flex-shrink: 0;
+      letter-spacing: 0.3px;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .screen { display: none; flex-direction: column; flex: 1; overflow: hidden; }
+    .screen.active { display: flex; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(150deg, #00c0f3 0%, #0a7eb5 50%, #0f3d58 100%);
+      padding: 24px 22px 22px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .hero::before { content:''; position:absolute; top:-80px; right:-80px; width:240px; height:240px; border:1.5px solid rgba(255,255,255,0.07); border-radius:50%; pointer-events:none; }
+    .hero::after  { content:''; position:absolute; bottom:-50px; right:20px; width:140px; height:140px; border:1.5px solid rgba(255,255,255,0.05); border-radius:50%; pointer-events:none; }
+    .hero-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; position:relative; z-index:1; }
+    .brand { display:flex; align-items:center; gap:10px; }
+    .brand-icon { width:32px; height:32px; background:rgba(255,255,255,0.2); border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .brand-icon svg { width:18px; height:18px; }
+    .brand-name { color:#fff; font-size:16px; font-weight:700; }
+    .version-pill { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:11px; font-weight:600; border-radius:20px; padding:4px 12px; font-family:'Source Sans 3',sans-serif; }
+    .hero-greeting { font-size:11px; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:1.4px; font-family:'Source Sans 3',sans-serif; position:relative; z-index:1; }
+    .hero-title { color:#fff; font-size:24px; font-weight:300; margin-top:4px; line-height:1.25; position:relative; z-index:1; }
+    .hero-tag { display:inline-block; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:11px; font-weight:600; border-radius:8px; padding:3px 10px; margin-top:10px; font-family:'Source Sans 3',sans-serif; position:relative; z-index:1; }
+
+    /* HOME BODY */
+    .home-body { background:#f0f3f7; padding:18px 16px; overflow-y:auto; flex:1; min-height:0; }
+    .section-label { font-size:11px; font-weight:800; color:#0f3d58; text-transform:uppercase; letter-spacing:1.3px; margin-bottom:10px; font-family:'Source Sans 3',sans-serif; }
+
+    /* SOS BUTTON — inverted */
+    .sos-btn { width:100%; background:#fff; border:2px solid #FF6720; border-radius:18px; padding:15px 18px; display:flex; align-items:center; gap:14px; cursor:pointer; margin-bottom:18px; transition:background 0.15s, transform 0.1s; text-align:left; }
+    .sos-btn:hover { background:#fff8f5; transform:translateY(-1px); }
+    .sos-btn:active { transform:translateY(0); }
+    .sos-icon-wrap { width:42px; height:42px; background:#FF6720; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+    .sos-text { flex:1; }
+    .sos-title { color:#c94d00; font-size:15px; font-weight:800; }
+    .sos-sub { color:#a84000; font-size:11px; font-family:'Source Sans 3',sans-serif; margin-top:2px; }
+    .sos-arrow { color:#FF6720; font-size:22px; font-weight:700; }
+
+    /* QUICK GRID */
+    .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
+    .quick-card { background:#fff; border-radius:16px; padding:14px 12px; cursor:pointer; border:1px solid #dde4ee; transition:all 0.15s; }
+    .quick-card:hover { border-color:#00c0f3; transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,192,243,0.12); }
+    .qc-icon { font-size:22px; margin-bottom:8px; }
+    .qc-title { font-size:13px; font-weight:700; color:#131e29; line-height:1.3; }
+    .qc-sub { font-size:10px; color:#8a9ab0; margin-top:3px; font-family:'Source Sans 3',sans-serif; }
+
+    /* ACCORDION */
+    .accordion { background:#fff; border-radius:16px; overflow:hidden; border:1px solid #dde4ee; margin-bottom:12px; }
+    .acc-header { padding:13px 16px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; transition:background 0.12s; }
+    .acc-header:hover { background:#f5faff; }
+    .acc-left { display:flex; align-items:center; gap:10px; }
+    .acc-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+    .acc-dot.blue   { background:#00c0f3; }
+    .acc-dot.orange { background:#FF6720; }
+    .acc-dot.green  { background:#22c55e; }
+    .acc-dot.purple { background:#884dd9; }
+    .acc-title { font-size:13px; font-weight:700; color:#131e29; }
+    .acc-arrow { font-size:16px; color:#00c0f3; font-weight:700; transition:transform 0.22s; display:inline-block; }
+    .acc-arrow.open { transform:rotate(90deg); }
+    .acc-items { border-top:1px solid #eef2f8; display:none; }
+    .acc-items.open { display:block; }
+    .acc-item { display:flex; align-items:center; gap:12px; padding:12px 16px; border-bottom:1px solid #f5f7fa; cursor:pointer; transition:background 0.12s; }
+    .acc-item:last-child { border-bottom:none; }
+    .acc-item:hover { background:#f0faff; }
+    .ai-icon { font-size:15px; flex-shrink:0; width:22px; text-align:center; }
+    .ai-text { font-size:13px; color:#2d3748; font-family:'Source Sans 3',sans-serif; flex:1; line-height:1.4; }
+    .ai-badge { font-size:9px; font-weight:700; background:#fff3ee; color:#FF6720; border-radius:6px; padding:2px 7px; font-family:'Source Sans 3',sans-serif; flex-shrink:0; }
+    .ai-badge.green { background:#e6f9ee; color:#166534; }
+    .ai-chevron { font-size:11px; color:#bbc8d8; flex-shrink:0; }
+
+    /* POLICY BANNER — Option C */
+    .policy-banner { background:#fff; border:2px solid #0f3d58; border-radius:16px; padding:13px 15px; display:flex; align-items:center; gap:12px; cursor:pointer; margin-bottom:18px; transition:background 0.15s, transform 0.1s; }
+    .policy-banner:hover { background:#f5f8ff; transform:translateY(-1px); }
+    .policy-banner:active { transform:translateY(0); }
+    .pb-icon { width:40px; height:40px; background:#0f3d58; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+    .pb-body { flex:1; }
+    .pb-eyebrow { font-size:9px; font-weight:800; color:#0f3d58; text-transform:uppercase; letter-spacing:1px; font-family:'Source Sans 3',sans-serif; }
+    .pb-title { font-size:14px; font-weight:700; color:#131e29; margin-top:1px; line-height:1.3; }
+    .pb-sub { font-size:11px; color:#6b7a8d; font-family:'Source Sans 3',sans-serif; margin-top:2px; }
+    .pb-arrow { font-size:20px; color:#0f3d58; font-weight:700; flex-shrink:0; }
+
+    /* FULL POLICY SCREEN */
+    .policy-section-block { background:#fff; border-radius:16px; border:1px solid #dde4ee; margin-bottom:12px; overflow:hidden; }
+    .psb-header { background:#0f3d58; padding:12px 16px; }
+    .psb-header-title { color:#fff; font-size:13px; font-weight:700; }
+    .psb-body { padding:14px 16px; }
+    .policy-text { font-size:12px; color:#374151; font-family:'Source Sans 3',sans-serif; line-height:1.75; }
+    .policy-text p { margin-bottom:10px; }
+    .policy-text p:last-child { margin-bottom:0; }
+    .policy-text ul { padding-left:18px; margin:6px 0 10px; }
+    .policy-text li { margin-bottom:5px; }
+    .policy-text strong { color:#131e29; font-weight:700; }
+    .policy-text .warning { background:#fff8f5; border:1px solid #ffd0b8; border-radius:10px; padding:10px 12px; margin:10px 0; font-size:11px; color:#7a3500; }
+
+    /* SEARCH */
+    .search-wrap { background:#fff; border-radius:16px; border:1px solid #dde4ee; overflow:hidden; margin-bottom:4px; }
+    .search-inner { padding:14px; }
+    .search-bar { display:flex; align-items:center; gap:10px; background:#f0f3f7; border:1.5px solid #dde4ee; border-radius:12px; padding:10px 14px; transition:border-color 0.15s, background 0.15s; }
+    .search-bar:focus-within { border-color:#00c0f3; background:#f0faff; }
+    .search-ico { font-size:16px; opacity:0.5; flex-shrink:0; }
+    .search-input { border:none; background:transparent; font-size:14px; color:#131e29; font-family:'Source Sans 3',sans-serif; flex:1; outline:none; }
+    .search-input::placeholder { color:#a0adb8; }
+    .search-clear { background:none; border:none; color:#a0adb8; font-size:18px; cursor:pointer; padding:0; line-height:1; display:none; transition:color 0.12s; }
+    .search-clear:hover { color:#6b7a8d; }
+    .search-clear.show { display:block; }
+    .hint-row { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
+    .hint-chip { background:#e8eef8; color:#0f3d58; font-size:11px; font-weight:600; border-radius:20px; padding:5px 12px; cursor:pointer; border:none; font-family:'Source Sans 3',sans-serif; transition:background 0.12s,color 0.12s; }
+    .hint-chip:hover { background:#00c0f3; color:#fff; }
+    .search-results { margin-top:10px; }
+    .sr-item { display:flex; align-items:flex-start; gap:12px; padding:10px 6px; border-bottom:1px solid #f0f3f7; cursor:pointer; transition:background 0.12s; border-radius:8px; }
+    .sr-item:last-child { border-bottom:none; }
+    .sr-item:hover { background:#f5faff; }
+    .sr-ico { font-size:16px; flex-shrink:0; width:22px; text-align:center; margin-top:2px; }
+    .sr-body { flex:1; }
+    .sr-name { font-size:13px; font-weight:700; color:#131e29; }
+    .sr-name mark { background:#fff3cd; color:#8a5700; border-radius:3px; padding:0 2px; font-style:normal; }
+    .sr-cat { font-size:10px; color:#8a9ab0; margin-top:2px; font-family:'Source Sans 3',sans-serif; }
+    .sr-kw { font-size:10px; color:#00a8d6; margin-top:3px; font-style:italic; font-family:'Source Sans 3',sans-serif; }
+    .sr-chev { font-size:11px; color:#bbc8d8; flex-shrink:0; margin-top:3px; }
+    .no-results { text-align:center; padding:24px 10px; color:#a0adb8; font-family:'Source Sans 3',sans-serif; font-size:13px; }
+    .no-results .nr-icon { font-size:28px; display:block; margin-bottom:8px; }
+
+    /* DETAIL HEADER */
+    .detail-header { background:#0f1a26; padding:16px 20px; display:flex; align-items:center; gap:14px; flex-shrink:0; border-bottom:1px solid #1e2e3e; }
+    .back-btn { width:34px; height:34px; background:rgba(255,255,255,0.1); border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; font-size:20px; border:none; flex-shrink:0; transition:background 0.12s; font-weight:300; }
+    .back-btn:hover { background:rgba(255,255,255,0.2); }
+    .detail-title-text { color:#fff; font-size:15px; font-weight:700; line-height:1.3; }
+    .detail-body { background:#f0f3f7; padding:16px; overflow-y:auto; flex:1; min-height:0; }
+    .quiz-body { background:#f0f3f7; padding:16px; overflow-y:auto; flex:1; min-height:0; }
+
+    /* CARDS */
+    .card { background:#fff; border-radius:16px; padding:16px; margin-bottom:12px; border:1px solid #dde4ee; }
+    .card-heading { font-size:11px; font-weight:800; color:#0f3d58; text-transform:uppercase; letter-spacing:0.9px; margin-bottom:12px; font-family:'Source Sans 3',sans-serif; }
+    .card-heading.green { color:#15803d; }
+    .card-heading.red   { color:#dc2626; }
+    .step { display:flex; gap:12px; margin-bottom:14px; }
+    .step:last-child { margin-bottom:0; }
+    .step-num { width:28px; height:28px; border-radius:50%; background:#00c0f3; color:#fff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+    .step-num.warn  { background:#FF6720; }
+    .step-num.stop  { background:#dc2626; }
+    .step-num.check { background:#22c55e; font-size:10px; }
+    .step-text { flex:1; font-size:13px; color:#374151; font-family:'Source Sans 3',sans-serif; line-height:1.65; }
+    .step-text strong { color:#131e29; font-weight:700; }
+    .alert { border-radius:13px; padding:13px 15px; margin-bottom:12px; }
+    .alert.orange { background:#fff8f5; border:1px solid #ffd0b8; }
+    .alert.blue   { background:#e8f6ff; border:1px solid #a8d8f5; }
+    .alert-label { font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.9px; margin-bottom:5px; font-family:'Source Sans 3',sans-serif; }
+    .alert.orange .alert-label { color:#c94d00; }
+    .alert.blue   .alert-label { color:#0f3d58; }
+    .alert-body { font-size:12px; color:#4b5563; font-family:'Source Sans 3',sans-serif; line-height:1.55; }
+    .contact-row { background:#0f3d58; border-radius:13px; padding:12px 15px; display:flex; align-items:center; justify-content:space-between; margin-bottom:9px; }
+    .cr-label { font-size:10px; color:rgba(255,255,255,0.55); font-weight:600; text-transform:uppercase; letter-spacing:0.8px; font-family:'Source Sans 3',sans-serif; }
+    .cr-value { font-size:12px; color:#fff; font-weight:700; margin-top:2px; }
+    .cr-btn { background:#00c0f3; color:#fff; font-size:11px; font-weight:700; border-radius:9px; padding:6px 13px; border:none; cursor:pointer; font-family:'Source Sans 3',sans-serif; transition:background 0.12s; }
+    .cr-btn:hover { background:#00aada; }
+    .info-list { font-size:13px; color:#374151; font-family:'Source Sans 3',sans-serif; line-height:1.7; }
+    .info-list ul { padding-left:20px; margin:6px 0 0; }
+    .info-list li { margin-bottom:6px; }
+    .info-list strong { color:#131e29; font-weight:700; }
+
+    /* QUIZ */
+    .quiz-prog-card { background:#fff; border-radius:14px; padding:14px 16px; margin-bottom:16px; border:1px solid #dde4ee; }
+    .qp-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    .qp-label { font-size:12px; color:#8a9ab0; font-family:'Source Sans 3',sans-serif; }
+    .qp-score { font-size:13px; font-weight:700; color:#0f3d58; }
+    .qp-bar { background:#e0eaf5; border-radius:6px; height:7px; overflow:hidden; }
+    .qp-fill { background:#00c0f3; height:100%; border-radius:6px; transition:width 0.4s ease; }
+    .q-card { background:#fff; border-radius:16px; padding:18px; border:1px solid #dde4ee; margin-bottom:14px; }
+    .q-num { font-size:10px; font-weight:800; color:#00c0f3; text-transform:uppercase; letter-spacing:1px; font-family:'Source Sans 3',sans-serif; margin-bottom:10px; }
+    .q-text { font-size:16px; font-weight:700; color:#131e29; line-height:1.4; margin-bottom:18px; }
+    .a-btn { width:100%; border:1.5px solid #dde4ee; background:#fff; border-radius:12px; padding:13px 16px; text-align:left; font-size:13px; color:#374151; font-family:'Source Sans 3',sans-serif; cursor:pointer; margin-bottom:9px; transition:all 0.15s; display:block; }
+    .a-btn:hover { border-color:#00c0f3; background:#f0faff; }
+    .a-btn.correct { border-color:#22c55e; background:#f0fdf4; color:#15803d; }
+    .a-btn.wrong   { border-color:#dc2626; background:#fef2f2; color:#991b1b; }
+    .a-btn.locked  { pointer-events:none; }
+    .quiz-result { background:#fff; border-radius:16px; padding:28px 20px; text-align:center; border:1px solid #dde4ee; display:none; }
+    .quiz-result.show { display:block; }
+    .qr-icon { font-size:48px; margin-bottom:10px; }
+    .qr-title { font-size:20px; font-weight:700; color:#131e29; margin-bottom:6px; }
+    .qr-sub { font-size:13px; color:#6b7a8d; font-family:'Source Sans 3',sans-serif; line-height:1.55; }
+    .retake-btn { background:#00c0f3; color:#fff; border:none; border-radius:13px; padding:13px 24px; font-size:14px; font-weight:700; cursor:pointer; width:100%; margin-top:16px; font-family:'Nunito',sans-serif; transition:background 0.12s; }
+    .retake-btn:hover { background:#00aada; }
+
+    /* BOTTOM NAV */
+    .bottom-nav { background:#0f1a26; border-top:1px solid #1e2e3e; display:flex; justify-content:space-around; padding:10px 0 20px; flex-shrink:0; }
+    .nav-item { display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; padding:5px 14px; border-radius:13px; border:none; background:transparent; transition:background 0.12s; }
+    .nav-item:hover { background:rgba(255,255,255,0.05); }
+    .nav-item.active { background:rgba(0,192,243,0.15); }
+    .nav-ico { font-size:20px; }
+    .nav-lbl { font-size:10px; color:#4e6a85; font-weight:600; font-family:'Source Sans 3',sans-serif; }
+    .nav-item.active .nav-lbl { color:#00c0f3; }
+
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:transparent; }
+    ::-webkit-scrollbar-thumb { background:rgba(0,192,243,0.3); border-radius:4px; }
+  </style>
+</head>
+<body>
+<div class="phone">
+
+  <div class="status-bar">
+    C Spire Fleet Guide &nbsp;·&nbsp; Draft v1.0 &nbsp;·&nbsp; April 2026
+  </div>
+
+  <!-- ═══ HOME ═══ -->
+  <div class="screen active" id="sc-home">
+    <div class="hero">
+      <div class="hero-top">
+        <div class="brand">
+          <div class="brand-icon">
+            <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3.2" fill="white"></circle><line x1="9" y1="1" x2="9" y2="5.5" stroke="white" stroke-width="2" stroke-linecap="round"></line><line x1="9" y1="12.5" x2="9" y2="17" stroke="white" stroke-width="2" stroke-linecap="round"></line><line x1="1" y1="9" x2="5.5" y2="9" stroke="white" stroke-width="2" stroke-linecap="round"></line><line x1="12.5" y1="9" x2="17" y2="9" stroke="white" stroke-width="2" stroke-linecap="round"></line><line x1="3.2" y1="3.2" x2="6.5" y2="6.5" stroke="white" stroke-width="2" stroke-linecap="round"></line><line x1="11.5" y1="11.5" x2="14.8" y2="14.8" stroke="white" stroke-width="2" stroke-linecap="round"></line><line x1="14.8" y1="3.2" x2="11.5" y2="6.5" stroke="white" stroke-width="2" stroke-linecap="round"></line><line x1="6.5" y1="11.5" x2="3.2" y2="14.8" stroke="white" stroke-width="2" stroke-linecap="round"></line></svg>
+          </div>
+          <div class="brand-name">c spire <span style="font-weight:300;opacity:0.75;font-size:13px;">Fleet Guide</span></div>
+        </div>
+        <div class="version-pill">Updated 4/30/26</div>
+      </div>
+      <div class="hero-greeting">Good Morning</div>
+      <div class="hero-title">C Spire Fleet Policy</div>
+      <div class="hero-tag">Your complete fleet reference guide</div>
+    </div>
+
+    <div class="home-body">
+      <button class="sos-btn" onclick="go(&#39;sc-accident&#39;)">
+        <div class="sos-icon-wrap">🚨</div>
+        <div class="sos-text">
+          <div class="sos-title">I was in an accident</div>
+          <div class="sos-sub">Tap for step-by-step guidance right now</div>
+        </div>
+        <div class="sos-arrow">›</div>
+      </button>
+
+      <div class="section-label">Quick Reference</div>
+      <div class="quick-grid">
+        <div class="quick-card" onclick="go(&#39;sc-fuel&#39;)"><div class="qc-icon">⛽</div><div class="qc-title">Fuel Card</div><div class="qc-sub">Rules &amp; limits</div></div>
+        <div class="quick-card" onclick="go(&#39;sc-quiz&#39;)"><div class="qc-icon">🧠</div><div class="qc-title">Policy Quiz</div><div class="qc-sub">Test your knowledge</div></div>
+        <div class="quick-card" onclick="go(&#39;sc-maintenance&#39;)"><div class="qc-icon">🔧</div><div class="qc-title">Maintenance</div><div class="qc-sub">Schedules &amp; care</div></div>
+        <div class="quick-card" onclick="go(&#39;sc-pretrip&#39;)"><div class="qc-icon">📋</div><div class="qc-title">Pre-Trip Check</div><div class="qc-sub">Daily inspection</div></div>
+      </div>
+
+      <!-- Option C: Official Policy Banner -->
+      <button class="policy-banner" onclick="go(&#39;sc-fullpolicy&#39;)">
+        <div class="pb-icon">📄</div>
+        <div class="pb-body">
+          <div class="pb-eyebrow">Official Document</div>
+          <div class="pb-title">Fleet Management Policy</div>
+          <div class="pb-sub">Read the full policy — exact wording</div>
+        </div>
+        <div class="pb-arrow">›</div>
+      </button>
+
+      <div class="section-label">All Policy Topics</div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggle(&#39;acc1&#39;,&#39;arr1&#39;)"><div class="acc-left"><div class="acc-dot blue"></div><div class="acc-title">Driver Rules &amp; Eligibility</div></div><span class="acc-arrow" id="arr1">›</span></div>
+        <div class="acc-items" id="acc1">
+          <div class="acc-item" onclick="go(&#39;sc-authorized&#39;)"><div class="ai-icon">🪪</div><div class="ai-text">Who can drive a company vehicle</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-mvr&#39;)"><div class="ai-icon">📊</div><div class="ai-text">MVR &amp; driving record requirements</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-suspension&#39;)"><div class="ai-icon">⚠️</div><div class="ai-text">License suspension rules</div><div class="ai-badge">Action Required</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-violations&#39;)"><div class="ai-icon">🚦</div><div class="ai-text">Traffic violations &amp; citations</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-negligence&#39;)"><div class="ai-icon">⚖️</div><div class="ai-text">Driver negligence policy</div><div class="ai-chevron">›</div></div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggle(&#39;acc2&#39;,&#39;arr2&#39;)"><div class="acc-left"><div class="acc-dot orange"></div><div class="acc-title">Accidents &amp; Damage</div></div><span class="acc-arrow" id="arr2">›</span></div>
+        <div class="acc-items" id="acc2">
+          <div class="acc-item" onclick="go(&#39;sc-accident&#39;)"><div class="ai-icon">🚗</div><div class="ai-text">Collision reporting steps</div><div class="ai-badge">Urgent</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-accident&#39;)"><div class="ai-icon">📸</div><div class="ai-text">What to document at the scene</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-accident&#39;)"><div class="ai-icon">📋</div><div class="ai-text">What to report &amp; to whom</div><div class="ai-chevron">›</div></div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggle(&#39;acc3&#39;,&#39;arr3&#39;)"><div class="acc-left"><div class="acc-dot green"></div><div class="acc-title">Vehicle Care &amp; Safety</div></div><span class="acc-arrow" id="arr3">›</span></div>
+        <div class="acc-items" id="acc3">
+          <div class="acc-item" onclick="go(&#39;sc-theft&#39;)"><div class="ai-icon">🔒</div><div class="ai-text">Theft prevention measures</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-keys&#39;)"><div class="ai-icon">🔑</div><div class="ai-text">Key control &amp; lost keys</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-maintenance&#39;)"><div class="ai-icon">🔧</div><div class="ai-text">Maintenance &amp; inspections</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-pretrip&#39;)"><div class="ai-icon">✅</div><div class="ai-text">Pre-trip inspection checklist</div><div class="ai-badge green">Daily</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-restrictions&#39;)"><div class="ai-icon">🚫</div><div class="ai-text">Prohibited vehicle activities</div><div class="ai-chevron">›</div></div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-header" onclick="toggle(&#39;acc4&#39;,&#39;arr4&#39;)"><div class="acc-left"><div class="acc-dot purple"></div><div class="acc-title">Fuel, Rentals &amp; Other Rules</div></div><span class="acc-arrow" id="arr4">›</span></div>
+        <div class="acc-items" id="acc4">
+          <div class="acc-item" onclick="go(&#39;sc-fuel&#39;)"><div class="ai-icon">⛽</div><div class="ai-text">Fuel card policy &amp; refueling</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-rentals&#39;)"><div class="ai-icon">🚘</div><div class="ai-text">Rental &amp; leased vehicles</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-alcohol&#39;)"><div class="ai-icon">🚫</div><div class="ai-text">Alcohol &amp; drug policy</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-distracted&#39;)"><div class="ai-icon">📵</div><div class="ai-text">Distracted driving rules</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go(&#39;sc-dot&#39;)"><div class="ai-icon">🏗️</div><div class="ai-text">DOT commercial driver program</div><div class="ai-chevron">›</div></div>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin-top:6px;">Search Policy</div>
+      <div class="search-wrap">
+        <div class="search-inner">
+          <div class="search-bar">
+            <span class="search-ico">🔍</span>
+            <input class="search-input" id="srch" type="text" placeholder="Try: accident, fuel, pets, smoking, DUI..." oninput="doSearch(this.value)">
+            <button class="search-clear" id="srch-clear" onclick="clearSearch()">✕</button>
+          </div>
+          <div class="hint-row" id="hint-row">
+            <button class="hint-chip" onclick="fillSearch(&#39;accident&#39;)">accident</button>
+            <button class="hint-chip" onclick="fillSearch(&#39;fuel card&#39;)">fuel card</button>
+            <button class="hint-chip" onclick="fillSearch(&#39;smoking&#39;)">smoking</button>
+            <button class="hint-chip" onclick="fillSearch(&#39;speeding&#39;)">speeding</button>
+            <button class="hint-chip" onclick="fillSearch(&#39;keys&#39;)">lost keys</button>
+            <button class="hint-chip" onclick="fillSearch(&#39;texting&#39;)">texting</button>
+            <button class="hint-chip" onclick="fillSearch(&#39;pets&#39;)">pets</button>
+            <button class="hint-chip" onclick="fillSearch(&#39;DUI&#39;)">DUI</button>
+            <button class="hint-chip" onclick="fillSearch(&#39;inspection&#39;)">inspection</button>
+            <button class="hint-chip" onclick="fillSearch(&#39;rental&#39;)">rental</button>
+          </div>
+          <div class="search-results" id="srch-results"></div>
+        </div>
+      </div>
+      <div style="height:12px;"></div>
+    </div>
+  </div>
+
+  <!-- ═══ ACCIDENT ═══ -->
+  <div class="screen" id="sc-accident">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚨 Accident &amp; Damage Reporting</div></div>
+    <div class="detail-body">
+      <div class="alert orange"><div class="alert-label">⚠ Most Important Rule</div><div class="alert-body">Make NO statements about fault or liability. Be courteous but say nothing that could imply responsibility.</div></div>
+      <div class="card">
+        <div class="card-heading">At the Scene</div>
+        <div class="step"><div class="step-num">1</div><div class="step-text">Ensure your <strong>safety and any passengers</strong>. Dial <strong>911</strong> immediately.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Seek medical help for anyone injured, or if law enforcement recommends it.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Take photos</strong> of all vehicles, the entire area, traffic signs, signals, skid marks, and traffic direction.</div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-text">Collect: other driver's <strong>name, license number, insurance carrier, policy number, phone number.</strong></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-text">Show the responding officer the vehicle insurance card. Get the collision report number, officer name and badge number.</div></div>
+      </div>
+      <div class="card">
+        <div class="card-heading">Report Same Day — Required</div>
+        <div class="step"><div class="step-num warn">!</div><div class="step-text">Email <strong>FleetAccidentReporting@cspire.com</strong> — include date, your name, vehicle make/model/tag, photos, police report, injuries, and whether vehicle is drivable.</div></div>
+        <div class="step"><div class="step-num warn">!</div><div class="step-text">Call <strong>Wheels (Donlen): 800-323-1483</strong> on the same day.</div></div>
+        <div class="step"><div class="step-num warn">!</div><div class="step-text">Notify your <strong>supervisor</strong> as soon as it is safe to do so.</div></div>
+      </div>
+      <div class="alert blue"><div class="alert-label">Do Not Discuss the Accident</div><div class="alert-body">Do not share details via email, social media, or with other drivers, attorneys, adjusters, or media without permission from C Spire Fleet Management, Safety, or Legal.</div></div>
+      <div class="contact-row"><div><div class="cr-label">Report Accidents To</div><div class="cr-value">FleetAccidentReporting@cspire.com</div></div><button class="cr-btn" onclick="copyText(&#39;FleetAccidentReporting@cspire.com&#39;,this)">Copy</button></div>
+      <div class="contact-row"><div><div class="cr-label">Wheels / Donlen</div><div class="cr-value">800-323-1483</div></div><button class="cr-btn">Call</button></div>
+    </div>
+  </div>
+
+  <!-- ═══ FUEL ═══ -->
+  <div class="screen" id="sc-fuel">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">⛽ Fuel Card Policy</div></div>
+    <div class="detail-body">
+      <div class="alert blue"><div class="alert-label">Fuel Card Assigned to Your Vehicle</div><div class="alert-body">A fuel card with a fixed dollar limit is assigned to each fleet vehicle. Keep it secured at all times.</div></div>
+      <div class="card"><div class="card-heading green">✓ Allowed Uses</div><div class="step"><div class="step-num check">✓</div><div class="step-text">Gasoline for your <strong>assigned fleet vehicle only</strong></div></div><div class="step"><div class="step-num check">✓</div><div class="step-text"><strong>87 octane</strong> fuel (unless manufacturer requires higher grade)</div></div><div class="step"><div class="step-num check">✓</div><div class="step-text">Personal card in <strong>emergencies only</strong> — with manager approval</div></div></div>
+      <div class="card"><div class="card-heading red">✗ Never Allowed</div><div class="step"><div class="step-num stop">✗</div><div class="step-text">Food, drinks, or personal items</div></div><div class="step"><div class="step-num stop">✗</div><div class="step-text">Fuel for any other vehicle</div></div><div class="step"><div class="step-num stop">✗</div><div class="step-text">Unauthorized accessories (battery jumper kits, etc.)</div></div><div class="step"><div class="step-num stop">✗</div><div class="step-text">Premium fuel above 87 octane unless required by manufacturer</div></div></div>
+      <div class="card"><div class="card-heading">Safe Refueling Steps</div><div class="step"><div class="step-num">1</div><div class="step-text">Refuel when gauge reads <strong>¼ full</strong></div></div><div class="step"><div class="step-num">2</div><div class="step-text"><strong>Turn off the engine</strong> while refueling</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Do not re-enter the vehicle during refueling — flash fire hazard</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Do not overfill — the dispenser auto-stops when the tank is full</div></div><div class="step"><div class="step-num">5</div><div class="step-text"><strong>Never leave the vehicle unattended</strong> while fueling</div></div></div>
+      <div class="alert orange"><div class="alert-label">Lost or Stolen Card?</div><div class="alert-body">Contact @CSpireFleet immediately to have the card blocked and a replacement issued.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ MAINTENANCE ═══ -->
+  <div class="screen" id="sc-maintenance">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🔧 Maintenance &amp; Inspections</div></div>
+    <div class="detail-body">
+      <div class="card"><div class="card-heading">Driver Responsibilities</div><div class="info-list"><ul><li>Conduct a <strong>visual pre-trip inspection</strong> before driving each day.</li><li>Ensure all <strong>inspections, registrations, and insurance certifications</strong> are current and valid.</li><li>Report needed repairs promptly — <strong>do not operate any vehicle you believe to be unsafe</strong> until corrected.</li><li>Follow all <strong>preventive maintenance schedules</strong> per manufacturer specifications.</li><li>Ensure <strong>annual vehicle tag renewals</strong> are completed and affixed.</li></ul></div></div>
+      <div class="card"><div class="card-heading">Critical Components — Always Maintain</div><div class="info-list">Recalls, timely oil changes, brakes, tires, suspension, steering, lights, mirrors, windows, and windshield wipers must always be controlled, maintained, and promptly repaired.</div></div>
+      <div class="alert orange"><div class="alert-label">Negligence Warning</div><div class="alert-body">Failure to complete required vehicle maintenance may result in financial responsibility for repair costs and disciplinary action up to and including termination.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ PRE-TRIP ═══ -->
+  <div class="screen" id="sc-pretrip">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">✅ Daily Pre-Trip Inspection</div></div>
+    <div class="detail-body">
+      <div class="alert blue"><div class="alert-label">Required Every Day Before Driving</div><div class="alert-body">Conduct a visual pre-trip inspection before beginning each driving day. Report any unsatisfactory results to your supervisor before operating.</div></div>
+      <div class="card"><div class="card-heading">DOT Inspection Checklist (CMV Drivers)</div><div class="info-list"><ul><li>Service brakes, including trailer brake connections</li><li>Parking (hand) brake</li><li>Steering mechanism</li><li>Lighting devices and reflectors</li><li>Tires — condition and inflation</li><li>Horn</li><li>Windshield wipers</li><li>Rear-vision mirrors</li><li>Coupling devices</li><li>Wheels and rims</li><li>Emergency equipment</li></ul></div></div>
+      <div class="card"><div class="card-heading">Post-Trip — CMV Drivers</div><div class="info-list">Complete and sign a <strong>Driver Vehicle Inspection Report (DVIR)</strong> at the end of each day for each vehicle operated. List any defects found. Original DVIRs are collected weekly by managers and retained for at least 3 months.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ AUTHORIZED ═══ -->
+  <div class="screen" id="sc-authorized">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🪪 Authorized Drivers</div></div>
+    <div class="detail-body">
+      <div class="card"><div class="card-heading">Who Is Authorized</div><div class="info-list"><ul><li>C Spire employees <strong>assigned as the primary driver</strong> of a fleet vehicle.</li><li>Other C Spire employees with <strong>intermittent or occasional</strong> need to drive on behalf of the Company.</li></ul></div></div>
+      <div class="card"><div class="card-heading red">Who Is NOT Allowed to Drive</div><div class="info-list"><ul><li>Relatives or domestic partners of the employee</li><li>Non-authorized business associates</li><li>Contractors</li><li>Friends or acquaintances</li><li>C Spire employees not expressly authorized</li></ul><br>Exception: A non-authorized driver may only drive in a <strong>medical or safety emergency</strong> if legally licensed in their state.</div></div>
+      <div class="alert orange"><div class="alert-label">Policy Reminder</div><div class="alert-body">Permitting unauthorized use may result in disciplinary action up to termination and financial responsibility for all associated repair or replacement costs.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ MVR ═══ -->
+  <div class="screen" id="sc-mvr">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">📊 Driving Record Requirements</div></div>
+    <div class="detail-body">
+      <div class="alert orange"><div class="alert-label">Annual MVR Review</div><div class="alert-body">C Spire reviews Motor Vehicle Records at least annually. Failing any criteria below means you cannot drive a company vehicle or on behalf of the company.</div></div>
+      <div class="card"><div class="card-heading red">Disqualifying — 3-Year Window</div><div class="info-list"><ul><li>More than <strong>2 moving violations</strong> within 3 years</li><li>More than <strong>1 at-fault collision</strong> within 3 years</li><li><strong>2 moving violations + 1 at-fault collision</strong> within 3 years</li></ul></div></div>
+      <div class="card"><div class="card-heading red">Major Violations — 5-Year Window</div><div class="info-list">Any single occurrence of: DWI/DUI, refusing substance test, open container, reckless driving, hit and run, fleeing police, racing, driving with a suspended/revoked license, vehicular assault or manslaughter, or using a vehicle in connection with a felony.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ SUSPENSION ═══ -->
+  <div class="screen" id="sc-suspension">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">⚠️ License Suspension</div></div>
+    <div class="detail-body">
+      <div class="alert orange"><div class="alert-label">Report Immediately</div><div class="alert-body">Any driving infraction that results in loss of driving privilege must be reported to your Manager and Human Resources immediately — even if a temporary driving permit has been issued.</div></div>
+      <div class="card"><div class="card-heading">What Happens Next</div><div class="info-list">A valid driver's license is an <strong>essential function</strong> of your role as an authorized driver. Employees with a suspended license may face disciplinary action up to and including termination, depending on the circumstances.<br><br>The manager of the previously authorized driver is responsible for <strong>securing the vehicle on C Spire property</strong> for the duration of the suspension.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ VIOLATIONS ═══ -->
+  <div class="screen" id="sc-violations">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚦 Traffic Violations</div></div>
+    <div class="detail-body">
+      <div class="card"><div class="card-heading">Who Is Responsible for Citations?</div><div class="info-list">C Spire is <strong>not responsible</strong> for traffic violations or parking tickets. Citations are the employee's personal responsibility — even when received while conducting company business.</div></div>
+      <div class="card"><div class="card-heading">Reporting Requirement</div><div class="info-list">Drivers must <strong>immediately report</strong> any ticket, arrest, collision, or damage to their manager — including incidents that occur during personal time.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ NEGLIGENCE ═══ -->
+  <div class="screen" id="sc-negligence">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">⚖️ Driver Negligence</div></div>
+    <div class="detail-body">
+      <div class="alert orange"><div class="alert-label">Financial &amp; Disciplinary Risk</div><div class="alert-body">Driver negligence may result in up to 100% financial responsibility for repair costs and disciplinary action up to and including termination of employment.</div></div>
+      <div class="card"><div class="card-heading red">Examples of Negligence</div><div class="info-list"><ul><li>Failure to promptly report an accident or significant damage</li><li>Failure to initiate repair in a timely and authorized manner</li><li>Failure to complete required vehicle maintenance on schedule</li><li>Failure to keep the vehicle clean inside and out</li><li>Failure to properly secure the vehicle and its contents at all times</li><li>Failure to comply with vehicle recall requirements from the manufacturer</li></ul></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ THEFT ═══ -->
+  <div class="screen" id="sc-theft">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🔒 Theft Prevention</div></div>
+    <div class="detail-body">
+      <div class="card"><div class="card-heading">Required Theft Prevention Measures</div><div class="info-list"><ul><li><strong>Never leave your vehicle running and unattended</strong> at any time.</li><li>Never leave keys in the car or ignition — even inside a locked garage.</li><li>Always roll up windows and lock the vehicle when unattended, including at home.</li><li>On job sites: <strong>never leave doors unlocked with keys in the vehicle</strong> when unattended or unoccupied.</li><li>When possible, park in view of high-traffic, well-lit areas.</li><li>In a fee garage, take the pay-ticket with you.</li><li>Remove valuables or hide them out of sight before exiting the vehicle.</li><li>If doors will not lock, the driver and management team are responsible for having repairs made promptly.</li></ul></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ KEYS ═══ -->
+  <div class="screen" id="sc-keys">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🔑 Key Control</div></div>
+    <div class="detail-body">
+      <div class="card"><div class="card-heading">Key Issuance Rules</div><div class="info-list">Keys are issued only to C Spire employees by Corporate Purchasing. Department managers may authorize keys for pool vehicles.<br><br><strong>No key may be duplicated</strong> without Corporate Purchasing approval. Unauthorized duplication adversely affects security and will result in disciplinary action.</div></div>
+      <div class="alert orange"><div class="alert-label">Lost or Stolen Keys</div><div class="alert-body">Report to Security and Corporate Purchasing immediately by the quickest means available. If stolen, file a formal police report and follow up with the Security Manager. The employee and their manager are responsible for obtaining a replacement key when authorized.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ RESTRICTIONS ═══ -->
+  <div class="screen" id="sc-restrictions">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚫 Prohibited Activities</div></div>
+    <div class="detail-body">
+      <div class="card"><div class="card-heading red">Strictly Prohibited In or On Company Vehicles</div><div class="info-list"><ul><li>Transportation of hazardous materials (unless DOT-approved for a C Spire business purpose)</li><li>Mounting unauthorized permanent devices — cell phone holders, roof carriers, etc.</li><li>Unauthorized customized license plates, stickers, decorations, temporary paint, or banners</li><li>Defacing or altering the vehicle in any manner</li><li><strong>Smoking of any kind</strong> — tobacco, e-cigarettes, marijuana/cannabis (whether legalized or not), even with windows down</li><li>Transportation of hitchhikers</li><li>After-market remote car starters</li><li><strong>Pets</strong> are not permitted in fleet vehicles</li><li>Unauthorized roof racks or carriers for luggage, skis, bicycles, or kayaks</li><li>Radar detectors</li></ul></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ RENTALS ═══ -->
+  <div class="screen" id="sc-rentals">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚘 Rentals &amp; Leased Vehicles</div></div>
+    <div class="detail-body">
+      <div class="card"><div class="card-heading">Same Rules Apply</div><div class="info-list">All C Spire Fleet Management policies apply equally to rental and leased vehicles in addition to company-owned fleet vehicles. The same safe driving, reporting, and conduct standards are in effect.</div></div>
+      <div class="alert blue"><div class="alert-label">Insurance Card Required</div><div class="alert-body">Drivers must have a current copy of C Spire's "Leased/Rented Vehicles" insurance identification card before driving. It must be available to present to law enforcement when requested.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ ALCOHOL ═══ -->
+  <div class="screen" id="sc-alcohol">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚫 Alcohol &amp; Drug Policy</div></div>
+    <div class="detail-body">
+      <div class="alert orange"><div class="alert-label">Zero Tolerance</div><div class="alert-body">Under no circumstances may a driver operate a C Spire vehicle while impaired by alcohol, illegal drugs, or legal drugs that impair driving ability. Violation results in disciplinary action up to and including termination.</div></div>
+      <div class="card"><div class="card-heading">Reporting Requirement</div><div class="info-list">Employees cited or convicted of driving under the influence must report the citation or conviction to their supervisor <strong>within 24 hours</strong> — regardless of whether the vehicle was personal, rental, or company-owned.</div></div>
+      <div class="card"><div class="card-heading">Post-Accident Testing</div><div class="info-list">An alcohol and/or drug test may be administered after a collision at the discretion of Human Resources.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ DISTRACTED ═══ -->
+  <div class="screen" id="sc-distracted">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">📵 Distracted Driving</div></div>
+    <div class="detail-body">
+      <div class="card"><div class="card-heading">What Counts as Distracted Driving</div><div class="info-list">Talking on a phone without handsfree, texting, emailing, programming a GPS, using headphones for audio devices, or <strong>any activity that takes your eyes or attention off the road</strong> — including eating and drinking.</div></div>
+      <div class="card"><div class="card-heading">What You Must Do Instead</div><div class="info-list"><ul><li>Pull over safely to the shoulder before engaging in any distracting activity</li><li>Use a hands-free kit or Bluetooth device for all phone calls</li><li>Follow all applicable state and local laws</li><li><strong>Never use any electronic device with headphones while driving</strong> — illegal in most states and prevents hearing warning signs, signals, or sirens</li></ul></div></div>
+      <div class="alert orange"><div class="alert-label">Keep a Safe Following Distance</div><div class="alert-body">Always maintain a safe following distance between you and the car in front of you. Failure to comply may result in disciplinary action up to and including termination.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ DOT ═══ -->
+  <div class="screen" id="sc-dot">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🏗️ DOT Commercial Driver Program</div></div>
+    <div class="detail-body">
+      <div class="alert blue"><div class="alert-label">Does This Apply to You?</div><div class="alert-body">DOT regulations apply if your vehicle transports more than 15 passengers, has a GVWR of 26,001+ lbs, has a GVWR of 10,001+ lbs in interstate commerce, or carries hazardous materials requiring placarding.</div></div>
+      <div class="card"><div class="card-heading">CDL Driver Requirements</div><div class="info-list"><ul><li>Pre-employment DOT drug screen before operating in a safety-sensitive function</li><li>Random drug and alcohol testing throughout the year</li><li>Valid Medical Examiner's Certification — must be maintained while in the role</li><li>Self-enroll in the National Drug &amp; Alcohol Clearinghouse (NDAC)</li></ul></div></div>
+      <div class="card"><div class="card-heading">Hours of Service Summary</div><div class="info-list"><ul><li><strong>10 consecutive hours off duty</strong> required before driving</li><li>Maximum of <strong>11 hours driving</strong> during a 14-hour on-duty window</li><li>30-minute rest break required within any 8-hour driving period</li><li>Maximum <strong>60 hours on duty</strong> in any 7 consecutive days</li><li>Maximum <strong>70 hours on duty</strong> in any 8 consecutive days</li></ul></div></div>
+      <div class="card"><div class="card-heading">Annual DOT Inspection</div><div class="info-list">Every commercial vehicle must have a periodic inspection at least once every 12 months per 49 CFR 396.17. The original or a copy must be retained in the vehicle for no less than 14 months from the report date.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ QUIZ ═══ -->
+  <div class="screen" id="sc-quiz">
+    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🧠 Policy Knowledge Quiz</div></div>
+    <div class="quiz-body">
+      <div class="quiz-prog-card">
+        <div class="qp-row"><span class="qp-label">Question <span id="q-num">1</span> of 5</span><span class="qp-score" id="q-score">Score: 0</span></div>
+        <div class="qp-bar"><div class="qp-fill" id="q-bar" style="width:20%"></div></div>
+      </div>
+      <div id="quiz-active">
+        <div class="q-card"><div class="q-num" id="q-label">Question 1</div><div class="q-text" id="q-text">An accident occurs. Before doing anything else, what must you NEVER do?</div><div id="q-answers"><button class="a-btn">Call your supervisor</button><button class="a-btn">Make statements about fault or liability</button><button class="a-btn">Take photos of the scene</button><button class="a-btn">Call 911</button></div></div>
+      </div>
+      <div class="quiz-result" id="quiz-done">
+        <div class="qr-icon" id="qr-icon">🏆</div>
+        <div class="qr-title" id="qr-title">Great work!</div>
+        <div class="qr-sub" id="qr-sub"></div>
+        <button class="retake-btn" onclick="resetQuiz()">Retake Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FULL POLICY ═══ -->
+  <div class="screen" id="sc-fullpolicy">
+    <div class="detail-header">
+      <button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button>
+      <div class="detail-title-text">📄 Fleet Management Policy</div>
+    </div>
+    <div class="detail-body">
+
+      <div class="alert blue" style="margin-bottom:14px;">
+        <div class="alert-label">Official Policy Document</div>
+        <div class="alert-body">This is the complete, unabridged C Spire Fleet Management Policy. Revised April 30, 2026. Policy Owner: Corporate Purchasing.</div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Overview</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>C Spire may provide a Company vehicle to eligible employees who have an ongoing business need for ground transportation to perform their job. It is the responsibility of each authorized driver to ensure he/she is both familiar with and following the specifications of this policy. Authorized drivers must operate Company vehicles entrusted to them in a responsible, safe, legal, courteous, and non-abusive manner, in accordance with this policy, and with state and federal laws.</p>
+          <p>Employees are responsible for maintaining logs related to vehicle utilization (including daily personal and business miles driven) and for the regular maintenance of the provided vehicle in accordance with preventive maintenance best practices and as outlined in this policy. In addition, to maintain a professional image and protect the resale value of the vehicle, employees are responsible for keeping the vehicle clean inside and out. All accidents, regardless of fault, must be reported to @fleetaccidentreporting on the date of accident occurrence.</p>
+          <div class="warning"><strong>Failure to comply with the policies contained herein by any authorized driver may result in disciplinary action, up to and including termination.</strong> Managers are responsible for issuing disciplinary action for policy violations, following consultation with Human Resources.</div>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Eligibility for a Company Vehicle</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>Only employees authorized by the Company will be granted the use of a Company vehicle. Authorization for the issuance and continued use of a Company vehicle must come from the department EVP or CXX. As a rule, Company vehicles should only be authorized for individuals who routinely drive over 1,200 miles per month for business purposes. Average business miles driven will be monitored by Corporate Purchasing, and management will be requested to regularly reaffirm the continued need for vehicles that are being driven fewer than 1,200 miles per month.</p>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Authorized Drivers</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>The procedures within this policy apply to all employees operating a Company fleet vehicle, their personal vehicle, or a rental vehicle on behalf of the Company.</p>
+          <p>Only authorized drivers may operate Company vehicles that they are licensed to operate. Authorized drivers are defined as:</p>
+          <ul><li>C Spire employees who have been assigned as the primary driver of a fleet vehicle.</li><li>Other C Spire employees who are not assigned a vehicle, but who may have intermittent or occasional need to drive on behalf of the Company.</li></ul>
+          <p>Company vehicles may not be driven by: (a) relatives or domestic partners of the employee, (b) non-authorized business associates, (c) contractors, (d) friends or acquaintances, or (e) C Spire employees who have not been expressly authorized to drive a Company vehicle. A non-authorized driver may drive a Company vehicle only in the event of a medical and/or safety emergency and only if the individual is legally licensed in his/her state of residence.</p>
+          <div class="warning">Permitting unauthorized use of a Company vehicle may result in disciplinary action, up to and including termination of employment for the authorized driver to whom the vehicle was issued. Additionally, authorized drivers may be responsible for all repair or replacement costs associated with non-authorized use.</div>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Basic Vehicle Operation Guidelines</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>Employees are expected to treat Company vehicles with an appropriate level of respect and care, and to consistently adhere to all traffic laws and C Spire standards for safety.</p>
+          <ul>
+            <li>All drivers and passengers are expected to follow local, state, and federal guidelines for safe operation of a vehicle.</li>
+            <li>No employee shall drive while under the influence of alcohol or drugs, including illegal substances or medication that may impede the employee's ability to operate a vehicle safely.</li>
+            <li>The proper use of seat belts is mandatory.</li>
+            <li>Employees should focus on driving defensively, maintaining a focused awareness of their surroundings and of other drivers in proximity.</li>
+            <li>Never move through traffic aggressively.</li>
+            <li>Comply with speed limits and traffic signs. Follow all traffic signals.</li>
+            <li>Use extreme caution when driving through construction and school zones. Stop as required by law when school buses are picking up or dropping off passengers.</li>
+            <li>Always lock the vehicle and apply the parking brake when getting out, even if it remains in sight.</li>
+            <li>During long trips, take breaks every four hours. Never drive more than 10 hours during a 24-hour period.</li>
+            <li>When possible, avoid driving past midnight.</li>
+            <li>Employees shall not drive when drowsy.</li>
+            <li>When possible, drivers should avoid operating the vehicle in dangerous conditions, including flooded roads, icy conditions, heavy fog, and inclement weather.</li>
+            <li>Properly dispose of trash promptly, which not only maintains brand standards but also removes items that may hamper safe operation.</li>
+            <li>Never drive distracted which includes the use of a cellular phone without handsfree operation, eating, drinking or any other activity that takes your attention away from driving safely.</li>
+            <li>Radar detectors are prohibited in C Spire vehicles or C Spire rental vehicles.</li>
+            <li>Smoking, vaping, or the use of any tobacco products is not permitted when driving on behalf of the Company, or at any time in Company fleet vehicles.</li>
+            <li>Tracking devices have been installed on each Company vehicle and should remain properly plugged in at all times. Any issues with devices becoming loose or non-usable should be promptly reported via email to the Fleet Program Manager.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Collision and Damage Reporting and Instructions</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>If you are involved in an automobile collision while in a Company vehicle (or a rental vehicle), be courteous, but <strong>MAKE NO STATEMENTS</strong> regarding responsibility, fault or liability. Additionally:</p>
+          <ul>
+            <li>Take all reasonable steps necessary to ensure your immediate safety and that of any passengers in your vehicle and others at the scene.</li>
+            <li>Dial 911 to report a vehicle collision.</li>
+            <li>Seek medical treatment for anyone injured if you believe it is needed or if recommended by law enforcement.</li>
+            <li><strong>Contact a member of the C Spire Fleet Management team or the Safety team as soon as practical (FleetAccidentReporting@cspire.com). All accidents or vehicle damage must be reported on the date that the accident or damage occurs.</strong></li>
+            <li>TAKE PHOTOS OF VEHICLES AND THE ENTIRE AREA: RECORD TRAFFIC DIRECTION, TRAFFIC FLOW, SIGNALS, SIGNS, SKID MARKS, ETC.</li>
+            <li>If law enforcement requests details, ask to speak to the officer in private and provide a factual description of what you observed. DO NOT speculate. DO NOT assume under any circumstances that you were legally at fault or make statements to that effect.</li>
+            <li>DO NOT discuss the details of the collision with anyone other than law enforcement at the scene or elsewhere without first obtaining permission from C Spire Fleet Management, the Safety team, or C Spire's Legal team. This includes the other driver, investigators, attorneys, claims adjusters, or media representatives.</li>
+            <li>DO NOT describe the details of the collision in any written correspondence, including email, social media, or memorandum, unless asked to do so by C Spire Fleet Management, the Safety team, C Spire's Legal team, or a Company attorney.</li>
+            <li>Provide or show the responding officer(s) the vehicle insurance card.</li>
+          </ul>
+          <p>Collect the following information related to other driver(s): Driver name, Driver's license number(s), Insurance carrier name(s), Insurance carrier phone number(s), Insurance policy number(s).</p>
+          <p>Obtain a copy of the collision report completed by the police officer. If unavailable at the time, collect: Collision report number, Officer's name and badge number, Police station phone number.</p>
+          <p>Report all vehicle collisions or damage to FleetAccidentReporting@cspire.com and your supervisor as soon as it is safe to do so, but no later than end of day. Report to Wheels (formerly Donlen) same day at <strong>800-323-1483</strong>.</p>
+          <p>An alcohol and/or drug test may be administered after a collision at the discretion of Human Resources.</p>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Driver/Manager Expectations</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <ul>
+            <li>Managers must ensure that drivers have received, understand, and have acknowledged receipt of the Fleet Management policy, including Appendix A – Distracted Driving, Appendix B – Fleet Commitment Statement, and the Use of Company Vehicles policy before driving a Company vehicle.</li>
+            <li>Managers must provide notice of all vehicle assignments by emailing @CSpireFleet before a vehicle is swapped, exchanged, assigned, or reassigned.</li>
+            <li>Drivers must always operate vehicles in a safe manner following the Basic Vehicle Operation Guidelines.</li>
+            <li>Drivers and managers must ensure their assigned vehicles are always clean (both on the interior and exterior) to ensure compliance with the Company's brand image and as a safety best practice.</li>
+            <li>Drivers and managers must ensure annual vehicle tag renewals are completed and affixed, as well as ensure compliance with state required inspection sticker regulations, where applicable.</li>
+            <li>Drivers must maintain a valid driver's license appropriate for the type of vehicle assigned.</li>
+            <li>Drivers must maintain an eligible driving record.</li>
+            <li>Drivers must participate and complete any required safe driver training.</li>
+            <li>Drivers must immediately report a ticket, arrest, collision, or damage to their manager in accordance with the Collision and Damage Reporting and Instructions section. This includes tickets or collisions which occur during the employee's personal time.</li>
+            <li>Drivers who have a corrective lenses restriction on their driver's license are responsible for adhering to such restrictions.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Driver Negligence</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>Driver negligence may result in the authorized driver assuming financial responsibility for up to 100% of repair costs deemed as having resulted from driver negligence, and may result in disciplinary action, up to and including termination of employment. Examples of driver negligence include, but are not limited to, the following:</p>
+          <ul>
+            <li>Failure to promptly report an accident or significant damage to your manager and/or proper authorities.</li>
+            <li>Failure to initiate repair of the vehicle in a timely and authorized manner.</li>
+            <li>Failure to complete required vehicle maintenance according to the maintenance schedule.</li>
+            <li>Failure to keep the vehicle clean, inside, and out.</li>
+            <li>Failure to properly secure the Company vehicle and its contents at all times including, but not limited to, laptops, cell phones, demo equipment and other Company property.</li>
+            <li>Failure to comply with vehicle recall requirements provided by the manufacturer.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Conditional Employee Eligibility to Drive</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>C Spire will review each driver's Motor Vehicle Record (MVR) at least annually to determine whether that driver meets minimum requirements for safe driving or is disqualified to drive a Company vehicle. An employee will not be eligible AND will not be allowed to drive a Company vehicle or on behalf of the Company if she or he:</p>
+          <ul>
+            <li>Has more than two (2) moving violations within a three-year period.</li>
+            <li>Has had more than one (1) at-fault collision within a three (3) year period.</li>
+            <li>Has two (2) moving violations and one (1) at-fault collision within a three (3) year period.</li>
+            <li>Has had one major moving violation [DWI/DUI/OUI, refusing substance test, driving with an open container (alcohol), reckless driving, hit and run, fleeing or evading police or roadblock, resisting arrest, racing/speed contest, driving with license suspended or revoked, vehicular assault, homicide or manslaughter or using vehicle in connection with a felony] within a five (5) year period.</li>
+            <li>Has a driver's license in a suspended or ineligible status.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Fuel Card</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>A fuel card is assigned to each vehicle with a fixed dollar limit and must be secured by the driver.</p>
+          <ul>
+            <li>The purchase of gasoline higher than 87 octane is prohibited unless required by the vehicle manufacturer.</li>
+            <li>Team members to whom Company vehicles are assigned will be issued a fleet fuel card, which should be used for all Company vehicle fuel purchases. Personal credit cards or other forms of payment for fuel should only be used in emergency circumstances and with approval from their manager or from the Fleet Program Manager.</li>
+            <li>The fuel card may not be used to purchase fuel for any other vehicle, to purchase any unauthorized vehicle accessories (i.e., battery jumper kit), or to purchase miscellaneous personal items such as food, drinks, and newspapers. Failure to comply with this policy may result in disciplinary action, up to and including termination of employment for the authorized driver.</li>
+          </ul>
+          <p>If a fuel card is lost, stolen or damaged, the authorized driver must contact @CSpireFleet immediately to have the card blocked and to have a replacement card issued.</p>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Inspections and Maintenance</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>To maintain the safety and integrity of the vehicle, C Spire will provide the necessary resources to ensure all vehicles are operating properly. All routine motor vehicle maintenance will be done according to the manufacturer's specifications. Critical components that must always be controlled, maintained, and promptly repaired include, but are not limited to, recalls, timely oil changes, brakes, tires, suspension, steering, lights, mirrors, windows, and windshield wipers.</p>
+          <ul>
+            <li>It is the driver's responsibility to ensure routine maintenance practices are followed and to report other needed repairs timely. <strong>Drivers shall not operate any vehicle they believe to be unsafe until the unsafe condition is properly addressed and corrected as needed.</strong></li>
+            <li>Drivers are required to conduct visual pre-trip vehicle inspections before beginning driving each day. Any unsatisfactory result requires a notification to the employee's immediate supervisor for further guidance on how to proceed.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Key Control</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>Issuance of a Company vehicle key will be completed by Corporate Purchasing. Department managers may authorize the issuance of keys in the case of a Company pool vehicle.</p>
+          <p>Keys will be issued only to C Spire employees. No key may be duplicated except upon approval of Corporate Purchasing. The unauthorized duplication of keys adversely affects the security of persons and property, and violations of this rule will result in appropriate disciplinary action being taken.</p>
+          <p>Lost or stolen keys must be reported to Security and Corporate Purchasing by the quickest means available. Individuals who report keys as stolen are expected to file a formal police report and to follow up with the Security Manager.</p>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">License Suspension</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>Any driving infraction that results in loss of driving privilege for the authorized driver must be reported to the employee's Manager and Human Resources immediately regardless of whether a temporary driving permit has been issued.</p>
+          <p>Driving and possessing a valid driver's license are considered essential functions of an authorized driver's job. Employees whose driver's license is suspended may be subject to disciplinary action, up to and including termination of employment, based on the facts and circumstance of the suspension. In the event of a license suspension, the manager of the previously authorized driver is responsible for securing the vehicle on C Spire property.</p>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Restrictions</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>The following activities are strictly prohibited in or on a Company vehicle regardless of whether the vehicle is being driven for business or personal use:</p>
+          <ul>
+            <li>Transportation of hazardous materials (unless for a C Spire business purpose and using DOT approved containers).</li>
+            <li>Mounting of unauthorized permanent devices in or on the vehicle (e.g., cell phone holders, roof carriers, unless for a C Spire business purpose).</li>
+            <li>Use of unauthorized customized license plates, stickers/magnetic signs, decorations, temporary paint, banners etc.</li>
+            <li>Fleet vehicles may not be defaced or altered in any manner.</li>
+            <li>Smoking is prohibited (this includes all forms of tobacco products, electronic/vapor cigarettes, use of marijuana/cannabis – whether legalized or not, and smoking with the windows down).</li>
+            <li>Transportation of hitchhikers.</li>
+            <li>Utilization of an after-market remote car starter.</li>
+            <li>Pets are not permitted in C Spire fleet vehicles.</li>
+            <li>Use of unauthorized equipment that is permanently mounted on the vehicle such as roof racks and carriers for luggage, skis, bicycles, and kayaks is strictly prohibited.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Refueling Guidelines</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>Vehicles should be refueled when the meter reads ¼ full. For your safety when operating a vehicle, follow these guidelines:</p>
+          <ul>
+            <li>Turn off the vehicle's engine while refueling.</li>
+            <li>Never smoke, light matches, or use lighters while refueling.</li>
+            <li>Do not get into the vehicle during refueling, as this presents a flash fire hazard.</li>
+            <li>Do not overfill or top off the vehicle's fuel tank. The fuel dispenser shuts off automatically when the tank is full.</li>
+            <li>Never force the hold-open latch on the gasoline pump with any means other than the latch provided.</li>
+            <li>Do not leave vehicles unattended while fueling.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Rentals or Leased Vehicles</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>Operational guidance within C Spire's Fleet Management policies also apply to the operation of rental or leased vehicles. Drivers must have a current copy of C Spire's "Leased/Rented Vehicles" insurance identification card before driving, and available to present when requested by law enforcement.</p>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Traffic Violations</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>C Spire is not responsible for traffic violations or parking tickets issued for violation of city ordinances or state/federal laws. Citations to an employee are the employee's responsibility, even if the citation is received while conducting business for C Spire.</p>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Use of Alcohol or Drugs</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>Under no circumstances is a driver permitted to operate a C Spire Company vehicle while impaired by alcohol, illegal drugs, or legal drugs which may impair one's ability to drive. Any violation of this policy will result in disciplinary action, up to and including termination of employment. Employees who are cited or convicted of operating a vehicle while under the influence of alcohol or drugs must report the citation or conviction to their supervisor within 24 hours; this requirement applies whether the employee was charged while driving a personal, rental or Company vehicle.</p>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Termination</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>Upon termination, C Spire requires that the terminating employee return all vehicle keys to their manager for safekeeping until the vehicle is reassigned. An employee's termination will not be administratively complete until the manager has confirmed the return of assigned keys.</p>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Theft Prevention Measures</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>C Spire requires all Company Drivers to follow these theft prevention measures:</p>
+          <ul>
+            <li>Never leave your vehicle running and unattended at any time.</li>
+            <li>Never leave your keys in the car or ignition, even inside a locked garage.</li>
+            <li>Always roll up your windows and lock the vehicle if the vehicle will be unattended, including while at home.</li>
+            <li>On the job site, it is never acceptable to leave doors unlocked and keys in the vehicle at any time while the vehicle is unattended or unoccupied.</li>
+            <li>When possible, park in view of high-traffic, well-lit areas.</li>
+            <li>If you park in a fee garage, take the pay-ticket with you.</li>
+            <li>Remove valuables or hide them out of sight before exiting the vehicle.</li>
+            <li>If doors will not lock it is the responsibility of the driver and his management team to have repairs made in a prompt manner.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Appendix A — Distracted Driving Policy</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>The purpose of the Distracted Driving Policy is to ensure that all employees know the rules that apply to the use of a Company vehicle and/or driving on behalf of the Company.</p>
+          <p>Employees driving any Company Vehicle or an employee driving on behalf of the Company shall not drive distracted. Distractions include talking on a cellular phone without handsfree operation, texting, emailing, programming a GPS, audio device use requiring headphones including radios, MP3 players and similar items, or any other activity (including eating) that may take your eyes off the road and attention away from safe driving. Always <strong>KEEP A SAFE FOLLOWING DISTANCE BETWEEN YOU AND THE CAR IN FRONT OF YOU.</strong></p>
+          <p>If you must engage in one of these activities, you are required to use one of the risk management steps below:</p>
+          <ul>
+            <li>Pull over on the shoulder only when you have a safe place to do so.</li>
+            <li>Use a hands-free kit, Bluetooth device.</li>
+            <li>Follow all state and local laws.</li>
+          </ul>
+          <p>Employees may not under any circumstances use any electronic device with headphones. Not only is it illegal to do so in most states, but headphones also impede a driver's ability to properly hear warning signs, signals, or sirens.</p>
+          <div class="warning"><strong>Failure to adhere to these policies may result in disciplinary action up to and including termination.</strong></div>
+        </div></div>
+      </div>
+
+      <div class="policy-section-block">
+        <div class="psb-header"><div class="psb-header-title">Appendix B — Fleet Commitment Statement</div></div>
+        <div class="psb-body"><div class="policy-text">
+          <p>The purpose of the Fleet Commitment Statement is to ensure that all employees understand the expectations that apply to the use of a Company vehicle and/or driving on behalf of the Company.</p>
+          <p>All authorized drivers will adhere to the driver practices and written policies as established by the Company. Drivers also agree to follow all federal, state, and local laws applicable to operating a motor vehicle.</p>
+          <p>Motor vehicle operators will ensure professional appearance and upkeep of any vehicle representing the Company. Vehicles are expected to be kept clean, damage free and maintained within the preventative maintenance guidelines within this policy.</p>
+          <p>Motor vehicle incidents and moving violations must be reported to Corporate Purchasing and Safety on the date of their occurrence, or within 8 hours of the incident.</p>
+          <ul>
+            <li>I understand that any motor vehicle used for the representation of the Company may NOT be operated by an unauthorized operator.</li>
+            <li>I understand the expectation to not drive distracted, including the use of a cellular phone in handsfree mode only.</li>
+            <li>I acknowledge I have received, read, and signed the Distracted Driving Policy.</li>
+          </ul>
+          <div class="warning"><strong>Failure to adhere to these policies may result in disciplinary action up to and including termination.</strong></div>
+        </div></div>
+      </div>
+
+      <div style="text-align:center;padding:8px 0 4px;">
+        <div style="font-size:10px;color:#a0adb8;font-family:&#39;Source Sans 3&#39;,sans-serif;">©2026 C Spire. All rights reserved.<br>Fleet Management Policy — Revision Date: April 30, 2026</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ BOTTOM NAV ═══ -->
+  <div class="bottom-nav">
+    <button class="nav-item active" id="nav-home" onclick="go(&#39;sc-home&#39;);setNav(&#39;nav-home&#39;)"><div class="nav-ico">🏠</div><div class="nav-lbl">Home</div></button>
+    <button class="nav-item" id="nav-policy" onclick="go(&#39;sc-accident&#39;);setNav(&#39;nav-policy&#39;)"><div class="nav-ico">📖</div><div class="nav-lbl">Policy</div></button>
+    <button class="nav-item" id="nav-quiz" onclick="go(&#39;sc-quiz&#39;);setNav(&#39;nav-quiz&#39;)"><div class="nav-ico">🧠</div><div class="nav-lbl">Quiz</div></button>
+    <button class="nav-item" id="nav-fuel" onclick="go(&#39;sc-fuel&#39;);setNav(&#39;nav-fuel&#39;)"><div class="nav-ico">⛽</div><div class="nav-lbl">Fuel</div></button>
+  </div>
+
+</div><!-- end .phone -->
+
+<script>
+  function go(id){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const b=document.querySelector('#'+id+' .detail-body, #'+id+' .quiz-body');
+    if(b)b.scrollTop=0;
+  }
+  function setNav(id){
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+  function toggle(secId,arrId){
+    const sec=document.getElementById(secId),arr=document.getElementById(arrId);
+    const open=sec.classList.contains('open');
+    sec.classList.toggle('open',!open);
+    arr.classList.toggle('open',!open);
+  }
+  function copyText(text,btn){
+    navigator.clipboard.writeText(text).catch(()=>{});
+    btn.textContent='Copied!';
+    setTimeout(()=>btn.textContent='Copy',2000);
+  }
+
+  const INDEX=[
+    {title:'Accident & Damage Reporting',screen:'sc-accident',icon:'🚗',cat:'Accidents & Damage',kw:['accident','crash','collision','damage','hit','report','photos','scene','911','emergency','fault','liability','police','insurance','donlen','wheels','reporting','repair','drivable','injured','injury','wreck','fender']},
+    {title:'Fuel Card Policy',screen:'sc-fuel',icon:'⛽',cat:'Fuel, Rentals & Other Rules',kw:['fuel','gas','gasoline','petrol','octane','card','refuel','tank','pump','fill','station','87','premium','food','drinks','lost card','stolen card','unattended','fire','overfill','refueling']},
+    {title:'Pre-Trip Inspection',screen:'sc-pretrip',icon:'✅',cat:'Vehicle Care & Safety',kw:['inspection','pre-trip','pretrip','daily','check','checklist','brakes','lights','tires','wipers','mirrors','horn','dvir','report','cmv','steering','before driving','tyre']},
+    {title:'Maintenance & Inspections',screen:'sc-maintenance',icon:'🔧',cat:'Vehicle Care & Safety',kw:['maintenance','oil','oil change','repair','brakes','tires','suspension','recall','tag renewal','registration','unsafe','clean','mechanic','service','preventive']},
+    {title:'Authorized Drivers',screen:'sc-authorized',icon:'🪪',cat:'Driver Rules & Eligibility',kw:['authorized','driver','who can drive','eligible','eligibility','family','spouse','relative','contractor','friend','permission','unauthorized','passenger','allowed']},
+    {title:'Driving Record Requirements',screen:'sc-mvr',icon:'📊',cat:'Driver Rules & Eligibility',kw:['mvr','driving record','motor vehicle record','violations','moving violation','at-fault','collision','speeding','dui','dwi','reckless','suspended','revoked','disqualified','background','3 year','5 year','ticket']},
+    {title:'License Suspension',screen:'sc-suspension',icon:'⚠️',cat:'Driver Rules & Eligibility',kw:['suspension','suspended','license','revoked','permit','temporary','infraction','hr','human resources','report suspension','lost license']},
+    {title:'Traffic Violations & Citations',screen:'sc-violations',icon:'🚦',cat:'Driver Rules & Eligibility',kw:['ticket','citation','parking ticket','speeding ticket','fine','violation','traffic','responsible','personal responsibility','parking']},
+    {title:'Driver Negligence',screen:'sc-negligence',icon:'⚖️',cat:'Driver Rules & Eligibility',kw:['negligence','negligent','responsible','financial','repair cost','discipline','termination','accountability','clean vehicle','secure','liability']},
+    {title:'Theft Prevention',screen:'sc-theft',icon:'🔒',cat:'Vehicle Care & Safety',kw:['theft','stolen','steal','lock','unattended','keys in car','valuables','parking','garage','lights','secure','running','idling','vehicle running']},
+    {title:'Key Control',screen:'sc-keys',icon:'🔑',cat:'Vehicle Care & Safety',kw:['key','keys','lost key','stolen key','duplicate','copy key','spare key','security','replace','replacement key','locked out']},
+    {title:'Prohibited Activities',screen:'sc-restrictions',icon:'🚫',cat:'Vehicle Care & Safety',kw:['prohibited','not allowed','banned','smoking','vaping','tobacco','cigarette','marijuana','cannabis','pets','dog','cat','animal','sticker','decoration','hitchhiker','radar detector','roof rack','carrier','alter','modify','customize','decal']},
+    {title:'Rental & Leased Vehicles',screen:'sc-rentals',icon:'🚘',cat:'Fuel, Rentals & Other Rules',kw:['rental','rent','lease','leased','enterprise','hertz','avis','rented vehicle','rental car','insurance card','leased vehicle']},
+    {title:'Alcohol & Drug Policy',screen:'sc-alcohol',icon:'🚫',cat:'Fuel, Rentals & Other Rules',kw:['alcohol','drug','drinking','dui','dwi','impaired','intoxicated','substance','testing','drug test','24 hours','report dui','marijuana','cannabis','legal drugs','medication','drinking and driving']},
+    {title:'Distracted Driving',screen:'sc-distracted',icon:'📵',cat:'Fuel, Rentals & Other Rules',kw:['distracted','texting','text','phone','cell phone','cellular','bluetooth','handsfree','hands-free','eating','gps','headphones','earbuds','following distance','attention','eyes off road','navigation']},
+    {title:'DOT Commercial Driver Program',screen:'sc-dot',icon:'🏗️',cat:'Fuel, Rentals & Other Rules',kw:['dot','commercial','cdl','commercial driver','hours of service','hos','medical exam','drug clearinghouse','ndac','tiedown','cargo','cmv','eld','logbook','hazmat']}
+  ];
+
+  function highlight(text,term){
+    if(!term)return text;
+    const re=new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+    return text.replace(re,'<mark>$1</mark>');
+  }
+  function doSearch(val){
+    const q=val.trim().toLowerCase();
+    const clearBtn=document.getElementById('srch-clear');
+    const hints=document.getElementById('hint-row');
+    const results=document.getElementById('srch-results');
+    clearBtn.classList.toggle('show',val.length>0);
+    if(!q){results.innerHTML='';hints.style.display='flex';return;}
+    hints.style.display='none';
+    const hits=INDEX.filter(item=>item.kw.some(k=>k.includes(q)||q.includes(k))||item.title.toLowerCase().includes(q)||item.cat.toLowerCase().includes(q));
+    const matchedKw=item=>item.kw.find(k=>k.includes(q)||q.includes(k))||'';
+    if(!hits.length){results.innerHTML='<div class="no-results"><span class="nr-icon">🔍</span>No results for "'+val+'".<br>Try: accident, fuel, pets, smoking, DUI, inspection.</div>';return;}
+    results.innerHTML=hits.map(item=>{
+      const kw=matchedKw(item);
+      return '<div class="sr-item" onclick="go(\''+item.screen+'\')">'
+        +'<div class="sr-ico">'+item.icon+'</div>'
+        +'<div class="sr-body">'
+        +'<div class="sr-name">'+highlight(item.title,val)+'</div>'
+        +'<div class="sr-cat">'+item.cat+'</div>'
+        +(kw&&kw!==item.title.toLowerCase()?'<div class="sr-kw">Matched: "'+kw+'"</div>':'')
+        +'</div>'
+        +'<div class="sr-chev">›</div>'
+        +'</div>';
+    }).join('');
+  }
+  function fillSearch(term){document.getElementById('srch').value=term;doSearch(term);}
+  function clearSearch(){document.getElementById('srch').value='';doSearch('');}
+
+  const QS=[
+    {q:'An accident occurs. Before doing anything else, what must you NEVER do?',a:['Call your supervisor','Make statements about fault or liability','Take photos of the scene','Call 911'],c:1},
+    {q:'When must all vehicle accidents or damage be reported to FleetAccidentReporting@cspire.com?',a:['Within 48 hours','By end of next business day','On the date the accident occurs','Within one week'],c:2},
+    {q:'Your fuel card — when is it acceptable to use a personal credit card for fuel?',a:['Any time it is more convenient','Emergency circumstances only, with manager approval','Whenever you prefer','For premium fuel purchases'],c:1},
+    {q:'What is the minimum business mileage per month for a company vehicle to remain authorized?',a:['800 miles','1,000 miles','1,200 miles','1,500 miles'],c:2},
+    {q:'Which of the following is strictly prohibited in a C Spire fleet vehicle?',a:['Using a Bluetooth device for calls','Keeping a pet in the vehicle','Refueling at ¼ tank','Conducting a pre-trip inspection'],c:1}
+  ];
+  let qCur=0,qScore=0;
+  function renderQ(){
+    if(qCur>=QS.length){showResult();return;}
+    const q=QS[qCur];
+    document.getElementById('q-num').textContent=qCur+1;
+    document.getElementById('q-label').textContent='Question '+(qCur+1);
+    document.getElementById('q-text').textContent=q.q;
+    document.getElementById('q-bar').style.width=(((qCur+1)/QS.length)*100)+'%';
+    const box=document.getElementById('q-answers');
+    box.innerHTML='';
+    q.a.forEach((a,i)=>{
+      const btn=document.createElement('button');
+      btn.className='a-btn';btn.textContent=a;
+      btn.onclick=()=>answerQ(i);
+      box.appendChild(btn);
+    });
+  }
+  function answerQ(i){
+    const q=QS[qCur];
+    document.querySelectorAll('.a-btn').forEach((b,idx)=>{
+      b.classList.add('locked');
+      if(idx===q.c)b.classList.add('correct');
+      else if(idx===i&&i!==q.c)b.classList.add('wrong');
+    });
+    if(i===q.c)qScore++;
+    document.getElementById('q-score').textContent='Score: '+qScore;
+    setTimeout(()=>{qCur++;renderQ();},1500);
+  }
+  function showResult(){
+    document.getElementById('quiz-active').style.display='none';
+    const done=document.getElementById('quiz-done');
+    done.classList.add('show');
+    const pct=Math.round((qScore/QS.length)*100);
+    document.getElementById('qr-icon').textContent=pct>=80?'🏆':pct>=60?'📘':'📚';
+    document.getElementById('qr-title').textContent=pct>=80?'Policy-ready!':pct>=60?'Good effort!':'Keep studying.';
+    document.getElementById('qr-sub').textContent='You scored '+qScore+' out of '+QS.length+' ('+pct+'%). '+(pct>=80?'You know your fleet policy well.':'Review the policy sections for any missed questions and try again.');
+  }
+  function resetQuiz(){
+    qCur=0;qScore=0;
+    document.getElementById('q-score').textContent='Score: 0';
+    document.getElementById('quiz-active').style.display='block';
+    document.getElementById('quiz-done').classList.remove('show');
+    renderQ();
+  }
+  renderQ();
+
+  // ── PWA SERVICE WORKER REGISTRATION ──────────────────────────────────────
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(registration => {
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                showUpdateBanner();
+              }
+            });
+          });
+        })
+        .catch(err => console.log('SW registration failed:', err));
+    });
+  }
+
+  function showUpdateBanner() {
+    const banner = document.createElement('div');
+    banner.style.cssText = [
+      'position:fixed','bottom:80px','left:50%','transform:translateX(-50%)',
+      'background:#0f3d58','color:#fff','font-family:Source Sans 3,sans-serif',
+      'font-size:13px','font-weight:600','padding:12px 20px','border-radius:24px',
+      'box-shadow:0 4px 20px rgba(0,0,0,0.3)','display:flex','align-items:center',
+      'gap:12px','z-index:9999','max-width:340px','width:calc(100% - 48px)'
+    ].join(';');
+    banner.innerHTML =
+      '<span style="font-size:16px;">🔄</span>' +
+      '<span style="flex:1;">Policy update available</span>' +
+      '<button onclick="location.reload()" style="background:#00c0f3;color:#fff;border:none;border-radius:12px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">Refresh</button>' +
+      '<button onclick="this.parentElement.remove()" style="background:rgba(255,255,255,0.15);color:#fff;border:none;border-radius:12px;padding:6px 10px;font-size:12px;cursor:pointer;">✕</button>';
+    document.body.appendChild(banner);
+  }
+
+
+</script>
+
+
+</body></html>
