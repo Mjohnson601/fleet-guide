@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<!-- saved from url=(0051)file:///Users/mjohnson/Downloads/fleet-guide_2.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>C Spire Fleet Guide — Draft v1.0</title>
 
   <!-- PWA manifest and theme -->
-  <link rel="manifest" href="file:///Users/mjohnson/Downloads/manifest.json">
-  <meta name="theme-color" content="#00c0f3">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Fleet Guide">
-  <meta name="application-name" content="Fleet Guide">
-  <meta name="msapplication-TileColor" content="#0f1a26">
-  <meta name="description" content="C Spire Fleet Management Policy — your complete reference guide for authorized drivers.">
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#00c0f3" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Fleet Guide" />
+  <meta name="application-name" content="Fleet Guide" />
+  <meta name="msapplication-TileColor" content="#0f1a26" />
+  <meta name="description" content="C Spire Fleet Management Policy — your complete reference guide for authorized drivers." />
 
   <!-- Apple touch icons (iOS home screen) -->
-  <link rel="apple-touch-icon" sizes="152x152" href="file:///Users/mjohnson/Downloads/icons/icon-152.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="file:///Users/mjohnson/Downloads/icons/icon-192.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="file:///Users/mjohnson/Downloads/icons/icon-512.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="192x192" href="file:///Users/mjohnson/Downloads/icons/icon-192.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="file:///Users/mjohnson/Downloads/icons/icon-96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="icons/icon-96.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link href="./C Spire Fleet Guide — Draft v1.2_files/css2" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -307,7 +307,7 @@
     </div>
 
     <div class="home-body">
-      <button class="sos-btn" onclick="go(&#39;sc-accident&#39;)">
+      <button class="sos-btn" onclick="go('sc-accident')">
         <div class="sos-icon-wrap">🚨</div>
         <div class="sos-text">
           <div class="sos-title">I was in an accident</div>
@@ -318,11 +318,11 @@
 
       <div class="section-label">Quick Reference</div>
       <div class="quick-grid">
-        <div class="quick-card" onclick="go(&#39;sc-fuel&#39;)"><div class="qc-icon">⛽</div><div class="qc-title">Fuel Card</div><div class="qc-sub">Rules &amp; limits</div></div>
-        <div class="quick-card" onclick="go(&#39;sc-quiz&#39;)"><div class="qc-icon">🧠</div><div class="qc-title">Policy Quiz</div><div class="qc-sub">Test your knowledge</div></div>
-        <div class="quick-card" onclick="go(&#39;sc-maintenance&#39;)"><div class="qc-icon">🔧</div><div class="qc-title">Maintenance</div><div class="qc-sub">Schedules &amp; care</div></div>
-        <div class="quick-card" onclick="go(&#39;sc-pretrip&#39;)"><div class="qc-icon">📋</div><div class="qc-title">Pre-Trip Check</div><div class="qc-sub">Daily inspection</div></div>
-        <div class="quick-card mile-tile" onclick="go(&#39;sc-mileage&#39;)">
+        <div class="quick-card" onclick="go('sc-fuel')"><div class="qc-icon">⛽</div><div class="qc-title">Fuel Card</div><div class="qc-sub">Rules &amp; limits</div></div>
+        <div class="quick-card" onclick="go('sc-quiz')"><div class="qc-icon">🧠</div><div class="qc-title">Policy Quiz</div><div class="qc-sub">Test your knowledge</div></div>
+        <div class="quick-card" onclick="go('sc-maintenance')"><div class="qc-icon">🔧</div><div class="qc-title">Maintenance</div><div class="qc-sub">Schedules &amp; care</div></div>
+        <div class="quick-card" onclick="go('sc-pretrip')"><div class="qc-icon">📋</div><div class="qc-title">Pre-Trip Check</div><div class="qc-sub">Daily inspection</div></div>
+        <div class="quick-card mile-tile" onclick="go('sc-mileage')">
           <div class="qc-icon">🚗</div>
           <div class="mile-tile-text">
             <div class="qc-title" style="color:#0f3d58;">Vehicle Mileage Form</div>
@@ -335,44 +335,44 @@
       <div class="section-label">All Policy Topics</div>
 
       <div class="accordion">
-        <div class="acc-header" onclick="toggle(&#39;acc1&#39;,&#39;arr1&#39;)"><div class="acc-left"><div class="acc-dot blue"></div><div class="acc-title">Driver Rules &amp; Eligibility</div></div><span class="acc-arrow" id="arr1">›</span></div>
+        <div class="acc-header" onclick="toggle('acc1','arr1')"><div class="acc-left"><div class="acc-dot blue"></div><div class="acc-title">Driver Rules &amp; Eligibility</div></div><span class="acc-arrow" id="arr1">›</span></div>
         <div class="acc-items" id="acc1">
-          <div class="acc-item" onclick="go(&#39;sc-authorized&#39;)"><div class="ai-icon">🪪</div><div class="ai-text">Who can drive a company vehicle</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-mvr&#39;)"><div class="ai-icon">📊</div><div class="ai-text">MVR &amp; driving record requirements</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-suspension&#39;)"><div class="ai-icon">⚠️</div><div class="ai-text">License suspension rules</div><div class="ai-badge">Action Required</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-violations&#39;)"><div class="ai-icon">🚦</div><div class="ai-text">Traffic violations &amp; citations</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-negligence&#39;)"><div class="ai-icon">⚖️</div><div class="ai-text">Driver negligence policy</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-authorized')"><div class="ai-icon">🪪</div><div class="ai-text">Who can drive a company vehicle</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-mvr')"><div class="ai-icon">📊</div><div class="ai-text">MVR &amp; driving record requirements</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-suspension')"><div class="ai-icon">⚠️</div><div class="ai-text">License suspension rules</div><div class="ai-badge">Action Required</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-violations')"><div class="ai-icon">🚦</div><div class="ai-text">Traffic violations &amp; citations</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-negligence')"><div class="ai-icon">⚖️</div><div class="ai-text">Driver negligence policy</div><div class="ai-chevron">›</div></div>
         </div>
       </div>
 
       <div class="accordion">
-        <div class="acc-header" onclick="toggle(&#39;acc2&#39;,&#39;arr2&#39;)"><div class="acc-left"><div class="acc-dot orange"></div><div class="acc-title">Accidents &amp; Damage</div></div><span class="acc-arrow" id="arr2">›</span></div>
+        <div class="acc-header" onclick="toggle('acc2','arr2')"><div class="acc-left"><div class="acc-dot orange"></div><div class="acc-title">Accidents &amp; Damage</div></div><span class="acc-arrow" id="arr2">›</span></div>
         <div class="acc-items" id="acc2">
-          <div class="acc-item" onclick="go(&#39;sc-accident&#39;)"><div class="ai-icon">🚗</div><div class="ai-text">Collision reporting steps</div><div class="ai-badge">Urgent</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-accident&#39;)"><div class="ai-icon">📸</div><div class="ai-text">What to document at the scene</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-accident&#39;)"><div class="ai-icon">📋</div><div class="ai-text">What to report &amp; to whom</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-accident')"><div class="ai-icon">🚗</div><div class="ai-text">Collision reporting steps</div><div class="ai-badge">Urgent</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-accident')"><div class="ai-icon">📸</div><div class="ai-text">What to document at the scene</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-accident')"><div class="ai-icon">📋</div><div class="ai-text">What to report &amp; to whom</div><div class="ai-chevron">›</div></div>
         </div>
       </div>
 
       <div class="accordion">
-        <div class="acc-header" onclick="toggle(&#39;acc3&#39;,&#39;arr3&#39;)"><div class="acc-left"><div class="acc-dot green"></div><div class="acc-title">Vehicle Care &amp; Safety</div></div><span class="acc-arrow" id="arr3">›</span></div>
+        <div class="acc-header" onclick="toggle('acc3','arr3')"><div class="acc-left"><div class="acc-dot green"></div><div class="acc-title">Vehicle Care &amp; Safety</div></div><span class="acc-arrow" id="arr3">›</span></div>
         <div class="acc-items" id="acc3">
-          <div class="acc-item" onclick="go(&#39;sc-theft&#39;)"><div class="ai-icon">🔒</div><div class="ai-text">Theft prevention measures</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-keys&#39;)"><div class="ai-icon">🔑</div><div class="ai-text">Key control &amp; lost keys</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-maintenance&#39;)"><div class="ai-icon">🔧</div><div class="ai-text">Maintenance &amp; inspections</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-pretrip&#39;)"><div class="ai-icon">✅</div><div class="ai-text">Pre-trip inspection checklist</div><div class="ai-badge green">Daily</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-restrictions&#39;)"><div class="ai-icon">🚫</div><div class="ai-text">Prohibited vehicle activities</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-theft')"><div class="ai-icon">🔒</div><div class="ai-text">Theft prevention measures</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-keys')"><div class="ai-icon">🔑</div><div class="ai-text">Key control &amp; lost keys</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-maintenance')"><div class="ai-icon">🔧</div><div class="ai-text">Maintenance &amp; inspections</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-pretrip')"><div class="ai-icon">✅</div><div class="ai-text">Pre-trip inspection checklist</div><div class="ai-badge green">Daily</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-restrictions')"><div class="ai-icon">🚫</div><div class="ai-text">Prohibited vehicle activities</div><div class="ai-chevron">›</div></div>
         </div>
       </div>
 
       <div class="accordion">
-        <div class="acc-header" onclick="toggle(&#39;acc4&#39;,&#39;arr4&#39;)"><div class="acc-left"><div class="acc-dot purple"></div><div class="acc-title">Fuel, Rentals &amp; Other Rules</div></div><span class="acc-arrow" id="arr4">›</span></div>
+        <div class="acc-header" onclick="toggle('acc4','arr4')"><div class="acc-left"><div class="acc-dot purple"></div><div class="acc-title">Fuel, Rentals &amp; Other Rules</div></div><span class="acc-arrow" id="arr4">›</span></div>
         <div class="acc-items" id="acc4">
-          <div class="acc-item" onclick="go(&#39;sc-fuel&#39;)"><div class="ai-icon">⛽</div><div class="ai-text">Fuel card policy &amp; refueling</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-rentals&#39;)"><div class="ai-icon">🚘</div><div class="ai-text">Rental &amp; leased vehicles</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-alcohol&#39;)"><div class="ai-icon">🚫</div><div class="ai-text">Alcohol &amp; drug policy</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-distracted&#39;)"><div class="ai-icon">📵</div><div class="ai-text">Distracted driving rules</div><div class="ai-chevron">›</div></div>
-          <div class="acc-item" onclick="go(&#39;sc-dot&#39;)"><div class="ai-icon">🏗️</div><div class="ai-text">DOT commercial driver program</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-fuel')"><div class="ai-icon">⛽</div><div class="ai-text">Fuel card policy &amp; refueling</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-rentals')"><div class="ai-icon">🚘</div><div class="ai-text">Rental &amp; leased vehicles</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-alcohol')"><div class="ai-icon">🚫</div><div class="ai-text">Alcohol &amp; drug policy</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-distracted')"><div class="ai-icon">📵</div><div class="ai-text">Distracted driving rules</div><div class="ai-chevron">›</div></div>
+          <div class="acc-item" onclick="go('sc-dot')"><div class="ai-icon">🏗️</div><div class="ai-text">DOT commercial driver program</div><div class="ai-chevron">›</div></div>
         </div>
       </div>
 
@@ -381,20 +381,20 @@
         <div class="search-inner">
           <div class="search-bar">
             <span class="search-ico">🔍</span>
-            <input class="search-input" id="srch" type="text" placeholder="Try: accident, fuel, pets, smoking, DUI..." oninput="doSearch(this.value)">
+            <input class="search-input" id="srch" type="text" placeholder="Try: accident, fuel, pets, smoking, DUI..." oninput="doSearch(this.value)" />
             <button class="search-clear" id="srch-clear" onclick="clearSearch()">✕</button>
           </div>
           <div class="hint-row" id="hint-row">
-            <button class="hint-chip" onclick="fillSearch(&#39;accident&#39;)">accident</button>
-            <button class="hint-chip" onclick="fillSearch(&#39;fuel card&#39;)">fuel card</button>
-            <button class="hint-chip" onclick="fillSearch(&#39;smoking&#39;)">smoking</button>
-            <button class="hint-chip" onclick="fillSearch(&#39;speeding&#39;)">speeding</button>
-            <button class="hint-chip" onclick="fillSearch(&#39;keys&#39;)">lost keys</button>
-            <button class="hint-chip" onclick="fillSearch(&#39;texting&#39;)">texting</button>
-            <button class="hint-chip" onclick="fillSearch(&#39;pets&#39;)">pets</button>
-            <button class="hint-chip" onclick="fillSearch(&#39;DUI&#39;)">DUI</button>
-            <button class="hint-chip" onclick="fillSearch(&#39;inspection&#39;)">inspection</button>
-            <button class="hint-chip" onclick="fillSearch(&#39;rental&#39;)">rental</button>
+            <button class="hint-chip" onclick="fillSearch('accident')">accident</button>
+            <button class="hint-chip" onclick="fillSearch('fuel card')">fuel card</button>
+            <button class="hint-chip" onclick="fillSearch('smoking')">smoking</button>
+            <button class="hint-chip" onclick="fillSearch('speeding')">speeding</button>
+            <button class="hint-chip" onclick="fillSearch('keys')">lost keys</button>
+            <button class="hint-chip" onclick="fillSearch('texting')">texting</button>
+            <button class="hint-chip" onclick="fillSearch('pets')">pets</button>
+            <button class="hint-chip" onclick="fillSearch('DUI')">DUI</button>
+            <button class="hint-chip" onclick="fillSearch('inspection')">inspection</button>
+            <button class="hint-chip" onclick="fillSearch('rental')">rental</button>
           </div>
           <div class="search-results" id="srch-results"></div>
         </div>
@@ -402,7 +402,7 @@
       <div style="height:12px;"></div>
       <div class="policy-footer-wrap">
         <div class="policy-footer-divider"></div>
-        <button class="policy-footer-btn" onclick="go(&#39;sc-fullpolicy&#39;)">
+        <button class="policy-footer-btn" onclick="go('sc-fullpolicy')">
           <div class="policy-footer-title">Fleet Management Policy</div>
           <div class="policy-footer-sub">Read the full policy — exact wording</div>
         </button>
@@ -413,7 +413,7 @@
 
   <!-- ═══ ACCIDENT ═══ -->
   <div class="screen" id="sc-accident">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚨 Accident &amp; Damage Reporting</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🚨 Accident &amp; Damage Reporting</div></div>
     <div class="detail-body">
       <div class="alert orange"><div class="alert-label">⚠ Most Important Rule</div><div class="alert-body">Make NO statements about fault or liability. Be courteous but say nothing that could imply responsibility.</div></div>
       <div class="card">
@@ -431,14 +431,14 @@
         <div class="step"><div class="step-num warn">!</div><div class="step-text">Notify your <strong>supervisor</strong> as soon as it is safe to do so.</div></div>
       </div>
       <div class="alert blue"><div class="alert-label">Do Not Discuss the Accident</div><div class="alert-body">Do not share details via email, social media, or with other drivers, attorneys, adjusters, or media without permission from C Spire Fleet Management, Safety, or Legal.</div></div>
-      <div class="contact-row"><div><div class="cr-label">Report Accidents To</div><div class="cr-value">FleetAccidentReporting@cspire.com</div></div><button class="cr-btn" onclick="copyText(&#39;FleetAccidentReporting@cspire.com&#39;,this)">Copy</button></div>
+      <div class="contact-row"><div><div class="cr-label">Report Accidents To</div><div class="cr-value">FleetAccidentReporting@cspire.com</div></div><button class="cr-btn" onclick="copyText('FleetAccidentReporting@cspire.com',this)">Copy</button></div>
       <div class="contact-row"><div><div class="cr-label">Wheels / Donlen</div><div class="cr-value">800-323-1483</div></div><button class="cr-btn">Call</button></div>
     </div>
   </div>
 
   <!-- ═══ FUEL ═══ -->
   <div class="screen" id="sc-fuel">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">⛽ Fuel Card Policy</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">⛽ Fuel Card Policy</div></div>
     <div class="detail-body">
       <div class="alert blue"><div class="alert-label">Fuel Card Assigned to Your Vehicle</div><div class="alert-body">A fuel card with a fixed dollar limit is assigned to each fleet vehicle. Keep it secured at all times.</div></div>
       <div class="card"><div class="card-heading green">✓ Allowed Uses</div><div class="step"><div class="step-num check">✓</div><div class="step-text">Gasoline for your <strong>assigned fleet vehicle only</strong></div></div><div class="step"><div class="step-num check">✓</div><div class="step-text"><strong>87 octane</strong> fuel (unless manufacturer requires higher grade)</div></div><div class="step"><div class="step-num check">✓</div><div class="step-text">Personal card in <strong>emergencies only</strong> — with manager approval</div></div></div>
@@ -450,7 +450,7 @@
 
   <!-- ═══ MAINTENANCE ═══ -->
   <div class="screen" id="sc-maintenance">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🔧 Maintenance &amp; Inspections</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🔧 Maintenance &amp; Inspections</div></div>
     <div class="detail-body">
       <div class="card"><div class="card-heading">Driver Responsibilities</div><div class="info-list"><ul><li>Conduct a <strong>visual pre-trip inspection</strong> before driving each day.</li><li>Ensure all <strong>inspections, registrations, and insurance certifications</strong> are current and valid.</li><li>Report needed repairs promptly — <strong>do not operate any vehicle you believe to be unsafe</strong> until corrected.</li><li>Follow all <strong>preventive maintenance schedules</strong> per manufacturer specifications.</li><li>Ensure <strong>annual vehicle tag renewals</strong> are completed and affixed.</li></ul></div></div>
       <div class="card"><div class="card-heading">Critical Components — Always Maintain</div><div class="info-list">Recalls, timely oil changes, brakes, tires, suspension, steering, lights, mirrors, windows, and windshield wipers must always be controlled, maintained, and promptly repaired.</div></div>
@@ -460,7 +460,7 @@
 
   <!-- ═══ PRE-TRIP ═══ -->
   <div class="screen" id="sc-pretrip">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">✅ Daily Pre-Trip Inspection</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">✅ Daily Pre-Trip Inspection</div></div>
     <div class="detail-body">
       <div class="alert blue"><div class="alert-label">Required Every Day Before Driving</div><div class="alert-body">Conduct a visual pre-trip inspection before beginning each driving day. Report any unsatisfactory results to your supervisor before operating.</div></div>
       <div class="card"><div class="card-heading">DOT Inspection Checklist (CMV Drivers)</div><div class="info-list"><ul><li>Service brakes, including trailer brake connections</li><li>Parking (hand) brake</li><li>Steering mechanism</li><li>Lighting devices and reflectors</li><li>Tires — condition and inflation</li><li>Horn</li><li>Windshield wipers</li><li>Rear-vision mirrors</li><li>Coupling devices</li><li>Wheels and rims</li><li>Emergency equipment</li></ul></div></div>
@@ -470,7 +470,7 @@
 
   <!-- ═══ AUTHORIZED ═══ -->
   <div class="screen" id="sc-authorized">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🪪 Authorized Drivers</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🪪 Authorized Drivers</div></div>
     <div class="detail-body">
       <div class="card"><div class="card-heading">Who Is Authorized</div><div class="info-list"><ul><li>C Spire employees <strong>assigned as the primary driver</strong> of a fleet vehicle.</li><li>Other C Spire employees with <strong>intermittent or occasional</strong> need to drive on behalf of the Company.</li></ul></div></div>
       <div class="card"><div class="card-heading red">Who Is NOT Allowed to Drive</div><div class="info-list"><ul><li>Relatives or domestic partners of the employee</li><li>Non-authorized business associates</li><li>Contractors</li><li>Friends or acquaintances</li><li>C Spire employees not expressly authorized</li></ul><br>Exception: A non-authorized driver may only drive in a <strong>medical or safety emergency</strong> if legally licensed in their state.</div></div>
@@ -480,7 +480,7 @@
 
   <!-- ═══ MVR ═══ -->
   <div class="screen" id="sc-mvr">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">📊 Driving Record Requirements</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">📊 Driving Record Requirements</div></div>
     <div class="detail-body">
       <div class="alert orange"><div class="alert-label">Annual MVR Review</div><div class="alert-body">C Spire reviews Motor Vehicle Records at least annually. Failing any criteria below means you cannot drive a company vehicle or on behalf of the company.</div></div>
       <div class="card"><div class="card-heading red">Disqualifying — 3-Year Window</div><div class="info-list"><ul><li>More than <strong>2 moving violations</strong> within 3 years</li><li>More than <strong>1 at-fault collision</strong> within 3 years</li><li><strong>2 moving violations + 1 at-fault collision</strong> within 3 years</li></ul></div></div>
@@ -490,7 +490,7 @@
 
   <!-- ═══ SUSPENSION ═══ -->
   <div class="screen" id="sc-suspension">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">⚠️ License Suspension</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">⚠️ License Suspension</div></div>
     <div class="detail-body">
       <div class="alert orange"><div class="alert-label">Report Immediately</div><div class="alert-body">Any driving infraction that results in loss of driving privilege must be reported to your Manager and Human Resources immediately — even if a temporary driving permit has been issued.</div></div>
       <div class="card"><div class="card-heading">What Happens Next</div><div class="info-list">A valid driver's license is an <strong>essential function</strong> of your role as an authorized driver. Employees with a suspended license may face disciplinary action up to and including termination, depending on the circumstances.<br><br>The manager of the previously authorized driver is responsible for <strong>securing the vehicle on C Spire property</strong> for the duration of the suspension.</div></div>
@@ -499,7 +499,7 @@
 
   <!-- ═══ VIOLATIONS ═══ -->
   <div class="screen" id="sc-violations">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚦 Traffic Violations</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🚦 Traffic Violations</div></div>
     <div class="detail-body">
       <div class="card"><div class="card-heading">Who Is Responsible for Citations?</div><div class="info-list">C Spire is <strong>not responsible</strong> for traffic violations or parking tickets. Citations are the employee's personal responsibility — even when received while conducting company business.</div></div>
       <div class="card"><div class="card-heading">Reporting Requirement</div><div class="info-list">Drivers must <strong>immediately report</strong> any ticket, arrest, collision, or damage to their manager — including incidents that occur during personal time.</div></div>
@@ -508,7 +508,7 @@
 
   <!-- ═══ NEGLIGENCE ═══ -->
   <div class="screen" id="sc-negligence">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">⚖️ Driver Negligence</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">⚖️ Driver Negligence</div></div>
     <div class="detail-body">
       <div class="alert orange"><div class="alert-label">Financial &amp; Disciplinary Risk</div><div class="alert-body">Driver negligence may result in up to 100% financial responsibility for repair costs and disciplinary action up to and including termination of employment.</div></div>
       <div class="card"><div class="card-heading red">Examples of Negligence</div><div class="info-list"><ul><li>Failure to promptly report an accident or significant damage</li><li>Failure to initiate repair in a timely and authorized manner</li><li>Failure to complete required vehicle maintenance on schedule</li><li>Failure to keep the vehicle clean inside and out</li><li>Failure to properly secure the vehicle and its contents at all times</li><li>Failure to comply with vehicle recall requirements from the manufacturer</li></ul></div></div>
@@ -517,7 +517,7 @@
 
   <!-- ═══ THEFT ═══ -->
   <div class="screen" id="sc-theft">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🔒 Theft Prevention</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🔒 Theft Prevention</div></div>
     <div class="detail-body">
       <div class="card"><div class="card-heading">Required Theft Prevention Measures</div><div class="info-list"><ul><li><strong>Never leave your vehicle running and unattended</strong> at any time.</li><li>Never leave keys in the car or ignition — even inside a locked garage.</li><li>Always roll up windows and lock the vehicle when unattended, including at home.</li><li>On job sites: <strong>never leave doors unlocked with keys in the vehicle</strong> when unattended or unoccupied.</li><li>When possible, park in view of high-traffic, well-lit areas.</li><li>In a fee garage, take the pay-ticket with you.</li><li>Remove valuables or hide them out of sight before exiting the vehicle.</li><li>If doors will not lock, the driver and management team are responsible for having repairs made promptly.</li></ul></div></div>
     </div>
@@ -525,7 +525,7 @@
 
   <!-- ═══ KEYS ═══ -->
   <div class="screen" id="sc-keys">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🔑 Key Control</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🔑 Key Control</div></div>
     <div class="detail-body">
       <div class="card"><div class="card-heading">Key Issuance Rules</div><div class="info-list">Keys are issued only to C Spire employees by Corporate Purchasing. Department managers may authorize keys for pool vehicles.<br><br><strong>No key may be duplicated</strong> without Corporate Purchasing approval. Unauthorized duplication adversely affects security and will result in disciplinary action.</div></div>
       <div class="alert orange"><div class="alert-label">Lost or Stolen Keys</div><div class="alert-body">Report to Security and Corporate Purchasing immediately by the quickest means available. If stolen, file a formal police report and follow up with the Security Manager. The employee and their manager are responsible for obtaining a replacement key when authorized.</div></div>
@@ -534,7 +534,7 @@
 
   <!-- ═══ RESTRICTIONS ═══ -->
   <div class="screen" id="sc-restrictions">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚫 Prohibited Activities</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🚫 Prohibited Activities</div></div>
     <div class="detail-body">
       <div class="card"><div class="card-heading red">Strictly Prohibited In or On Company Vehicles</div><div class="info-list"><ul><li>Transportation of hazardous materials (unless DOT-approved for a C Spire business purpose)</li><li>Mounting unauthorized permanent devices — cell phone holders, roof carriers, etc.</li><li>Unauthorized customized license plates, stickers, decorations, temporary paint, or banners</li><li>Defacing or altering the vehicle in any manner</li><li><strong>Smoking of any kind</strong> — tobacco, e-cigarettes, marijuana/cannabis (whether legalized or not), even with windows down</li><li>Transportation of hitchhikers</li><li>After-market remote car starters</li><li><strong>Pets</strong> are not permitted in fleet vehicles</li><li>Unauthorized roof racks or carriers for luggage, skis, bicycles, or kayaks</li><li>Radar detectors</li></ul></div></div>
     </div>
@@ -542,7 +542,7 @@
 
   <!-- ═══ RENTALS ═══ -->
   <div class="screen" id="sc-rentals">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚘 Rentals &amp; Leased Vehicles</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🚘 Rentals &amp; Leased Vehicles</div></div>
     <div class="detail-body">
       <div class="card"><div class="card-heading">Same Rules Apply</div><div class="info-list">All C Spire Fleet Management policies apply equally to rental and leased vehicles in addition to company-owned fleet vehicles. The same safe driving, reporting, and conduct standards are in effect.</div></div>
       <div class="alert blue"><div class="alert-label">Insurance Card Required</div><div class="alert-body">Drivers must have a current copy of C Spire's "Leased/Rented Vehicles" insurance identification card before driving. It must be available to present to law enforcement when requested.</div></div>
@@ -551,7 +551,7 @@
 
   <!-- ═══ ALCOHOL ═══ -->
   <div class="screen" id="sc-alcohol">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🚫 Alcohol &amp; Drug Policy</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🚫 Alcohol &amp; Drug Policy</div></div>
     <div class="detail-body">
       <div class="alert orange"><div class="alert-label">Zero Tolerance</div><div class="alert-body">Under no circumstances may a driver operate a C Spire vehicle while impaired by alcohol, illegal drugs, or legal drugs that impair driving ability. Violation results in disciplinary action up to and including termination.</div></div>
       <div class="card"><div class="card-heading">Reporting Requirement</div><div class="info-list">Employees cited or convicted of driving under the influence must report the citation or conviction to their supervisor <strong>within 24 hours</strong> — regardless of whether the vehicle was personal, rental, or company-owned.</div></div>
@@ -561,7 +561,7 @@
 
   <!-- ═══ DISTRACTED ═══ -->
   <div class="screen" id="sc-distracted">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">📵 Distracted Driving</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">📵 Distracted Driving</div></div>
     <div class="detail-body">
       <div class="card"><div class="card-heading">What Counts as Distracted Driving</div><div class="info-list">Talking on a phone without handsfree, texting, emailing, programming a GPS, using headphones for audio devices, or <strong>any activity that takes your eyes or attention off the road</strong> — including eating and drinking.</div></div>
       <div class="card"><div class="card-heading">What You Must Do Instead</div><div class="info-list"><ul><li>Pull over safely to the shoulder before engaging in any distracting activity</li><li>Use a hands-free kit or Bluetooth device for all phone calls</li><li>Follow all applicable state and local laws</li><li><strong>Never use any electronic device with headphones while driving</strong> — illegal in most states and prevents hearing warning signs, signals, or sirens</li></ul></div></div>
@@ -571,7 +571,7 @@
 
   <!-- ═══ DOT ═══ -->
   <div class="screen" id="sc-dot">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🏗️ DOT Commercial Driver Program</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🏗️ DOT Commercial Driver Program</div></div>
     <div class="detail-body">
       <div class="alert blue"><div class="alert-label">Does This Apply to You?</div><div class="alert-body">DOT regulations apply if your vehicle transports more than 15 passengers, has a GVWR of 26,001+ lbs, has a GVWR of 10,001+ lbs in interstate commerce, or carries hazardous materials requiring placarding.</div></div>
       <div class="card"><div class="card-heading">CDL Driver Requirements</div><div class="info-list"><ul><li>Pre-employment DOT drug screen before operating in a safety-sensitive function</li><li>Random drug and alcohol testing throughout the year</li><li>Valid Medical Examiner's Certification — must be maintained while in the role</li><li>Self-enroll in the National Drug &amp; Alcohol Clearinghouse (NDAC)</li></ul></div></div>
@@ -582,14 +582,14 @@
 
   <!-- ═══ QUIZ ═══ -->
   <div class="screen" id="sc-quiz">
-    <div class="detail-header"><button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button><div class="detail-title-text">🧠 Policy Knowledge Quiz</div></div>
+    <div class="detail-header"><button class="back-btn" onclick="go('sc-home')">‹</button><div class="detail-title-text">🧠 Policy Knowledge Quiz</div></div>
     <div class="quiz-body">
       <div class="quiz-prog-card">
         <div class="qp-row"><span class="qp-label">Question <span id="q-num">1</span> of 5</span><span class="qp-score" id="q-score">Score: 0</span></div>
         <div class="qp-bar"><div class="qp-fill" id="q-bar" style="width:20%"></div></div>
       </div>
       <div id="quiz-active">
-        <div class="q-card"><div class="q-num" id="q-label">Question 1</div><div class="q-text" id="q-text">An accident occurs. Before doing anything else, what must you NEVER do?</div><div id="q-answers"><button class="a-btn">Call your supervisor</button><button class="a-btn">Make statements about fault or liability</button><button class="a-btn">Take photos of the scene</button><button class="a-btn">Call 911</button></div></div>
+        <div class="q-card"><div class="q-num" id="q-label">Question 1</div><div class="q-text" id="q-text"></div><div id="q-answers"></div></div>
       </div>
       <div class="quiz-result" id="quiz-done">
         <div class="qr-icon" id="qr-icon">🏆</div>
@@ -603,7 +603,7 @@
   <!-- ═══ FULL POLICY ═══ -->
   <div class="screen" id="sc-fullpolicy">
     <div class="detail-header">
-      <button class="back-btn" onclick="go(&#39;sc-home&#39;)">‹</button>
+      <button class="back-btn" onclick="go('sc-home')">‹</button>
       <div class="detail-title-text">📄 Fleet Management Policy</div>
     </div>
     <div class="detail-body">
@@ -887,7 +887,7 @@
       </div>
 
       <div style="text-align:center;padding:8px 0 4px;">
-        <div style="font-size:10px;color:#a0adb8;font-family:&#39;Source Sans 3&#39;,sans-serif;">©2026 C Spire. All rights reserved.<br>Fleet Management Policy — Revision Date: April 30, 2026</div>
+        <div style="font-size:10px;color:#a0adb8;font-family:'Source Sans 3',sans-serif;">©2026 C Spire. All rights reserved.<br>Fleet Management Policy — Revision Date: April 30, 2026</div>
       </div>
 
     </div>
@@ -897,7 +897,7 @@
   <!-- ═══ MILEAGE FORM ═══ -->
   <div class="screen" id="sc-mileage">
     <div class="detail-header">
-      <button class="back-btn" onclick="go(&#39;sc-home&#39;);setNav(&#39;nav-home&#39;)">‹</button>
+      <button class="back-btn" onclick="go('sc-home');setNav('nav-home')">‹</button>
       <div class="detail-title-text">🚗 Vehicle Mileage Form</div>
     </div>
     <div class="detail-body">
@@ -916,8 +916,8 @@
         <div style="background:#00c0f3;border-radius:16px;padding:15px 18px;display:flex;align-items:center;gap:14px;">
           <div style="width:42px;height:42px;background:rgba(255,255,255,0.2);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📝</div>
           <div style="flex:1;">
-            <div style="color:#fff;font-size:15px;font-weight:800;font-family:&#39;Nunito&#39;,sans-serif;">Open Vehicle Mileage Form</div>
-            <div style="color:rgba(255,255,255,0.8);font-size:11px;font-family:&#39;Source Sans 3&#39;,sans-serif;margin-top:2px;">Opens in your browser — login required</div>
+            <div style="color:#fff;font-size:15px;font-weight:800;font-family:'Nunito',sans-serif;">Open Vehicle Mileage Form</div>
+            <div style="color:rgba(255,255,255,0.8);font-size:11px;font-family:'Source Sans 3',sans-serif;margin-top:2px;">Opens in your browser — login required</div>
           </div>
           <div style="color:rgba(255,255,255,0.8);font-size:22px;font-weight:700;">›</div>
         </div>
@@ -945,7 +945,7 @@
         <div class="info-list" style="margin-bottom:10px;">If you have issues accessing or submitting the form, contact Corporate Purchasing for assistance.</div>
         <div class="contact-row">
           <div><div class="cr-label">Corporate Purchasing Support</div><div class="cr-value">corporatepurchasingsupport@cspire.com</div></div>
-          <button class="cr-btn" onclick="copyText(&#39;corporatepurchasingsupport@cspire.com&#39;,this)">Copy</button>
+          <button class="cr-btn" onclick="copyText('corporatepurchasingsupport@cspire.com',this)">Copy</button>
         </div>
       </div>
 
@@ -953,11 +953,11 @@
   </div>
 
   <div class="bottom-nav">
-    <button class="nav-item active" id="nav-home" onclick="go(&#39;sc-home&#39;);setNav(&#39;nav-home&#39;)"><div class="nav-ico">🏠</div><div class="nav-lbl">Home</div></button>
-    <button class="nav-item" id="nav-policy" onclick="go(&#39;sc-accident&#39;);setNav(&#39;nav-policy&#39;)"><div class="nav-ico">📖</div><div class="nav-lbl">Policy</div></button>
-    <button class="nav-item" id="nav-quiz" onclick="go(&#39;sc-quiz&#39;);setNav(&#39;nav-quiz&#39;)"><div class="nav-ico">🧠</div><div class="nav-lbl">Quiz</div></button>
-    <button class="nav-item" id="nav-fuel" onclick="go(&#39;sc-fuel&#39;);setNav(&#39;nav-fuel&#39;)"><div class="nav-ico">⛽</div><div class="nav-lbl">Fuel</div></button>
-    <button class="nav-item mile" id="nav-mile" onclick="go(&#39;sc-mileage&#39;);setNav(&#39;nav-mile&#39;)"><div class="nav-ico">🚗</div><div class="nav-lbl">Mileage</div></button>
+    <button class="nav-item active" id="nav-home" onclick="go('sc-home');setNav('nav-home')"><div class="nav-ico">🏠</div><div class="nav-lbl">Home</div></button>
+    <button class="nav-item" id="nav-policy" onclick="go('sc-accident');setNav('nav-policy')"><div class="nav-ico">📖</div><div class="nav-lbl">Policy</div></button>
+    <button class="nav-item" id="nav-quiz" onclick="go('sc-quiz');setNav('nav-quiz')"><div class="nav-ico">🧠</div><div class="nav-lbl">Quiz</div></button>
+    <button class="nav-item" id="nav-fuel" onclick="go('sc-fuel');setNav('nav-fuel')"><div class="nav-ico">⛽</div><div class="nav-lbl">Fuel</div></button>
+    <button class="nav-item mile" id="nav-mile" onclick="go('sc-mileage');setNav('nav-mile')"><div class="nav-ico">🚗</div><div class="nav-lbl">Mileage</div></button>
   </div>
 
 </div><!-- end .phone -->
@@ -1126,6 +1126,5 @@
 
 
 </script>
-
-
-</body></html>
+</body>
+</html>
